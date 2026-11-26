@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="game_tips">
+        <item>把最大的方块留在角落。</item>
+        <item>沿着一条边把方块按从大到小排列。</item>
+        <item>选定一个主方向，避免会破坏角落的那个方向。</item>
+        <item>提前想好两三步。</item>
+        <item>尽早合并小方块以腾出空间。</item>
+        <item>不要随意滑动：保持一行井然有序。</item>
+        <item>棋盘填满也未必输：寻找可以合并的方块。</item>
+    </string-array>
+    <string name="app_name">2exp11</string>
+    <string name="best_score">最高分</string>
+    <string name="cancel">取消</string>
+    <string name="cd_leaderboard">排行榜</string>
+    <string name="cd_restart">新游戏</string>
+    <string name="cd_settings">设置</string>
+    <string name="cd_tip">提示</string>
+    <string name="continue_playing">继续</string>
+    <string name="fast_anim_desc">更快地连续合并。</string>
+    <string name="fast_anim_title">加快动画</string>
+    <string name="game_over">游戏结束</string>
+    <string name="language_system">系统默认</string>
+    <string name="language_title">语言</string>
+    <string name="leaderboard_unavailable">排行榜不可用</string>
+    <string name="moves_suffix">步数</string>
+    <string name="new_game_body">确定要开始新游戏吗？当前游戏将永久丢失。</string>
+    <string name="new_game_title">新游戏</string>
+    <string name="plan_basic">基础版</string>
+    <string name="plan_lifetime">终身版</string>
+    <string name="plan_plus">Plus 版</string>
+    <string name="plan_pro">专业版</string>
+    <string name="plan_standard">标准版</string>
+    <string name="premium_desc">选择您喜欢的价格以解锁所有高级建议。</string>
+    <string name="premium_most_selected">最多选择</string>
+    <string name="premium_slogan">一次购买 – 永久使用。无广告。</string>
+    <string name="premium_title">高级访问</string>
+    <string name="score">分数</string>
+    <string name="settings_title">设置</string>
+    <string name="sound_desc">每次移动时发出轻微声音。</string>
+    <string name="sound_title">启用声音</string>
+    <string name="start">开始</string>
+    <string name="theme_dark">深色主题</string>
+    <string name="theme_light">浅色主题</string>
+    <string name="undo">撤销</string>
+    <string name="vibration_desc">每次移动时震动。</string>
+    <string name="vibration_title">启用震动</string>
+    <string name="you_win">你赢了！</string>
+</resources>

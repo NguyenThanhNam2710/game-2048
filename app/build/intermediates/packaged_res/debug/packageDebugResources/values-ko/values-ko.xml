@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="game_tips">
+        <item>가장 큰 타일은 모서리에 두세요.</item>
+        <item>한 가장자리를 따라 타일을 내림차순으로 정렬하세요.</item>
+        <item>주된 방향을 정하고 모서리를 무너뜨리는 방향은 피하세요.</item>
+        <item>두세 수 앞을 내다보세요.</item>
+        <item>작은 타일은 일찍 합쳐 공간을 확보하세요.</item>
+        <item>무작정 밀지 말고 한 줄을 잘 정렬해 두세요.</item>
+        <item>꽉 찬 판도 끝이 아닙니다: 합칠 수 있는 곳을 찾으세요.</item>
+    </string-array>
+    <string name="app_name">2exp11</string>
+    <string name="best_score">최고 점수</string>
+    <string name="cancel">취소</string>
+    <string name="cd_leaderboard">리더보드</string>
+    <string name="cd_restart">새 게임</string>
+    <string name="cd_settings">설정</string>
+    <string name="cd_tip">팁</string>
+    <string name="continue_playing">계속하기</string>
+    <string name="fast_anim_desc">콤보를 더 빠르게 연결합니다.</string>
+    <string name="fast_anim_title">애니메이션 속도 향상</string>
+    <string name="game_over">게임 오버</string>
+    <string name="language_system">시스템 기본값</string>
+    <string name="language_title">언어</string>
+    <string name="leaderboard_unavailable">리더보드를 사용할 수 없습니다</string>
+    <string name="moves_suffix">이동</string>
+    <string name="new_game_body">새 게임을 시작하시겠습니까? 현재 게임은 영구적으로 사라집니다.</string>
+    <string name="new_game_title">새 게임</string>
+    <string name="plan_basic">베이직</string>
+    <string name="plan_lifetime">평생</string>
+    <string name="plan_plus">플러스</string>
+    <string name="plan_pro">프로</string>
+    <string name="plan_standard">스탠다드</string>
+    <string name="premium_desc">원하는 가격대를 선택하여 모든 프리미엄 제안을 잠금 해제하세요.</string>
+    <string name="premium_most_selected">가장 많이 선택됨</string>
+    <string name="premium_slogan">한 번 구매하면 영원히 사용. 광고 없음.</string>
+    <string name="premium_title">프리미엄 액세스</string>
+    <string name="score">점수</string>
+    <string name="settings_title">설정</string>
+    <string name="sound_desc">이동할 때마다 작은 소리가 납니다.</string>
+    <string name="sound_title">소리 사용</string>
+    <string name="start">시작</string>
+    <string name="theme_dark">다크 테마</string>
+    <string name="theme_light">라이트 테마</string>
+    <string name="undo">실행 취소</string>
+    <string name="vibration_desc">이동할 때마다 진동합니다.</string>
+    <string name="vibration_title">진동 사용</string>
+    <string name="you_win">승리!</string>
+</resources>

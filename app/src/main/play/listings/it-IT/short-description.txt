@@ -1,0 +1,1 @@
+Fai scorrere e unisci le tessere per raggiungere la tessera 2¹¹.

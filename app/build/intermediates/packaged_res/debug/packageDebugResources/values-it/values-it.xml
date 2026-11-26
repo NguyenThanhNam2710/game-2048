@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="game_tips">
+        <item>Tieni la tua tessera più grande in un angolo.</item>
+        <item>Disponi le tessere in ordine decrescente lungo un bordo.</item>
+        <item>Scegli una direzione principale ed evita quella che rovina il tuo angolo.</item>
+        <item>Pensa con due o tre mosse di anticipo.</item>
+        <item>Unisci presto le tessere piccole per liberare spazio.</item>
+        <item>Non scorrere a caso: mantieni una riga ben ordinata.</item>
+        <item>Una griglia piena non è persa: cerca le combinazioni possibili.</item>
+    </string-array>
+    <string name="app_name">2exp11</string>
+    <string name="best_score">MIGLIOR PUNTEGGIO</string>
+    <string name="cancel">ANNULLA</string>
+    <string name="cd_leaderboard">Classifiche</string>
+    <string name="cd_restart">Nuova partita</string>
+    <string name="cd_settings">Impostazioni</string>
+    <string name="cd_tip">Consiglio</string>
+    <string name="continue_playing">Continua</string>
+    <string name="fast_anim_desc">Concatena le combo più rapidamente.</string>
+    <string name="fast_anim_title">Accelera le animazioni</string>
+    <string name="game_over">Partita finita</string>
+    <string name="language_system">Predefinita di sistema</string>
+    <string name="language_title">Lingua</string>
+    <string name="leaderboard_unavailable">Classifica non disponibile</string>
+    <string name="moves_suffix">MOSSE</string>
+    <string name="new_game_body">Vuoi davvero iniziare una nuova partita? La partita attuale andrà persa definitivamente.</string>
+    <string name="new_game_title">Nuova partita</string>
+    <string name="plan_basic">Base</string>
+    <string name="plan_lifetime">A vita</string>
+    <string name="plan_plus">Plus</string>
+    <string name="plan_pro">Pro</string>
+    <string name="plan_standard">Standard</string>
+    <string name="premium_desc">Scegli il prezzo che preferisci per sbloccare tutti i suggerimenti premium.</string>
+    <string name="premium_most_selected">PIÙ SELEZIONATO</string>
+    <string name="premium_slogan">Compra una volta – usalo per sempre. Nessuna pubblicità.</string>
+    <string name="premium_title">Accesso Premium</string>
+    <string name="score">PUNTEGGIO</string>
+    <string name="settings_title">Impostazioni</string>
+    <string name="sound_desc">Un piccolo suono a ogni mossa.</string>
+    <string name="sound_title">Attiva l\'audio</string>
+    <string name="start">INIZIA</string>
+    <string name="theme_dark">Tema scuro</string>
+    <string name="theme_light">Tema chiaro</string>
+    <string name="undo">Annulla</string>
+    <string name="vibration_desc">Una vibrazione a ogni mossa.</string>
+    <string name="vibration_title">Attiva la vibrazione</string>
+    <string name="you_win">Hai vinto!</string>
+</resources>

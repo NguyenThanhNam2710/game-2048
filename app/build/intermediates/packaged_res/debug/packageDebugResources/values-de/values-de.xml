@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="game_tips">
+        <item>Behalte deine größte Kachel in einer Ecke.</item>
+        <item>Ordne deine Kacheln entlang einer Kante absteigend an.</item>
+        <item>Wähle eine Hauptrichtung und vermeide die, die deine Ecke zerstört.</item>
+        <item>Denke zwei oder drei Züge voraus.</item>
+        <item>Führe kleine Kacheln früh zusammen, um Platz zu schaffen.</item>
+        <item>Wische nicht zufällig: Halte eine Reihe gut geordnet.</item>
+        <item>Ein volles Feld ist nicht verloren: Suche nach möglichen Verschmelzungen.</item>
+    </string-array>
+    <string name="app_name">2exp11</string>
+    <string name="best_score">BEST SCORE</string>
+    <string name="cancel">Abbrechen</string>
+    <string name="cd_leaderboard">Bestenlisten</string>
+    <string name="cd_restart">Neues Spiel</string>
+    <string name="cd_settings">Einstellungen</string>
+    <string name="cd_tip">Tipp</string>
+    <string name="continue_playing">Weiter</string>
+    <string name="fast_anim_desc">Combos schneller verketten.</string>
+    <string name="fast_anim_title">Animationen beschleunigen</string>
+    <string name="game_over">Spiel vorbei</string>
+    <string name="language_system">Systemstandard</string>
+    <string name="language_title">Sprache</string>
+    <string name="leaderboard_unavailable">Bestenliste nicht verfügbar</string>
+    <string name="moves_suffix">MOVES</string>
+    <string name="new_game_body">Möchtest du wirklich ein neues Spiel starten? Das aktuelle Spiel geht dauerhaft verloren.</string>
+    <string name="new_game_title">Neues Spiel</string>
+    <string name="plan_basic">Basis</string>
+    <string name="plan_lifetime">Lebenslang</string>
+    <string name="plan_plus">Plus</string>
+    <string name="plan_pro">Pro</string>
+    <string name="plan_standard">Standard</string>
+    <string name="premium_desc">Wähle den Preis, den du bevorzugst, um alle Premium-Vorschläge freizuschalten.</string>
+    <string name="premium_most_selected">AM HÄUFIGSTEN GEWÄHLT</string>
+    <string name="premium_slogan">Einmal kaufen – für immer nutzen. Keine Werbung.</string>
+    <string name="premium_title">Premium-Zugang</string>
+    <string name="score">SCORE</string>
+    <string name="settings_title">Einstellungen</string>
+    <string name="sound_desc">Ein kleiner Ton bei jedem Zug.</string>
+    <string name="sound_title">Ton aktivieren</string>
+    <string name="start">START</string>
+    <string name="theme_dark">Dunkles Design</string>
+    <string name="theme_light">Helles Design</string>
+    <string name="undo">Rückgängig</string>
+    <string name="vibration_desc">Eine Vibration bei jedem Zug.</string>
+    <string name="vibration_title">Vibration aktivieren</string>
+    <string name="you_win">Gewonnen!</string>
+</resources>

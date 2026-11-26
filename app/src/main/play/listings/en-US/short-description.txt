@@ -1,0 +1,1 @@
+Merge the tiles, combine matching numbers and reach the 2¹¹ tile.

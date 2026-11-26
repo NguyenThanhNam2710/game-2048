@@ -1,0 +1,65 @@
+<resources>
+    <string name="app_name">2exp11</string>
+
+    <!-- Score row -->
+    <!-- Intentionally kept as short EN all-caps labels in every locale (stylistic, do not translate). -->
+    <string name="score">SCORE</string>
+    <string name="best_score">BEST SCORE</string>
+    <string name="moves_suffix">MOVES</string>
+
+    <!-- Header content descriptions -->
+    <string name="cd_leaderboard">Leaderboards</string>
+    <string name="cd_restart">New game</string>
+    <string name="cd_settings">Settings</string>
+
+    <!-- New game dialog -->
+    <string name="new_game_title">New Game</string>
+    <string name="new_game_body">Are you sure you want to start a new game? The current game will be permanently lost.</string>
+    <string name="start">START</string>
+    <string name="cancel">CANCEL</string>
+
+    <!-- Settings -->
+    <string name="settings_title">Settings</string>
+    <string name="theme_light">Light theme</string>
+    <string name="theme_dark">Dark theme</string>
+    <string name="fast_anim_title">Speed up animations</string>
+    <string name="fast_anim_desc">Chain combos more quickly.</string>
+    <string name="vibration_title">Enable vibration</string>
+    <string name="vibration_desc">A vibration on every move.</string>
+    <string name="sound_title">Enable sound</string>
+    <string name="sound_desc">A little sound on every move.</string>
+
+    <!-- Game state -->
+    <string name="undo">Undo</string>
+    <string name="you_win">You win!</string>
+    <string name="continue_playing">Continue</string>
+    <string name="game_over">Game over</string>
+    <string name="leaderboard_unavailable">Leaderboard unavailable</string>
+
+    <!-- Language selector -->
+    <string name="language_title">Language</string>
+    <string name="language_system">System default</string>
+
+    <!-- Gameplay tips (rotating carousel) -->
+    <string name="cd_tip">Tip</string>
+    <string-array name="game_tips">
+        <item>Keep your biggest tile in a corner.</item>
+        <item>Line up your tiles in descending order along one edge.</item>
+        <item>Pick a main direction and avoid the one that breaks your corner.</item>
+        <item>Think two or three moves ahead.</item>
+        <item>Merge small tiles early to free up space.</item>
+        <item>Don\'t swipe at random: keep one row well ordered.</item>
+        <item>A full grid isn\'t lost: look for possible merges.</item>
+    </string-array>
+
+    <!-- Premium selector -->
+    <string name="premium_title">Premium Access</string>
+    <string name="premium_desc">Choose the price point you prefer to unlock all premium suggestions.</string>
+    <string name="premium_slogan">Buy once – use forever. No ads.</string>
+    <string name="premium_most_selected">MOST SELECTED</string>
+    <string name="plan_basic">Basic</string>
+    <string name="plan_standard">Standard</string>
+    <string name="plan_plus">Plus</string>
+    <string name="plan_pro">Pro</string>
+    <string name="plan_lifetime">Lifetime</string>
+</resources>

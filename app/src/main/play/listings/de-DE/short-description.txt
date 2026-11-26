@@ -1,0 +1,1 @@
+Kacheln verschieben und verschmelzen, um die 2¹¹-Kachel zu erreichen.

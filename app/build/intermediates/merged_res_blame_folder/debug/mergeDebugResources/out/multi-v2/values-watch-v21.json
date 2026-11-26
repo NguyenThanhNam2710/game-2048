@@ -1,0 +1,20 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.gghez.game2048.app-mergeDebugResources-62:/values-watch-v21/values-watch-v21.xml",
+            "map": [
+                {
+                    "source": "/Users/nathang/.gradle/caches/8.13/transforms/3872321afaebee19e30f06ac42cf89a8/transformed/appcompat-1.7.0/res/values-watch-v21/values-watch-v21.xml",
+                    "from": {
+                        "startLines": "2,6,10",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,271,499",
+                        "endLines": "5,9,13",
+                        "endColumns": "12,12,12",
+                        "endOffsets": "266,494,724"
+                    }
+                }
+            ]
+        }
+    ]
+}

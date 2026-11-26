@@ -1,0 +1,58 @@
+<resources>
+    <string name="app_name">2exp11</string>
+    <!-- Score row -->
+    <string name="score">スコア</string>
+    <string name="best_score">ベストスコア</string>
+    <string name="moves_suffix">手</string>
+    <!-- Header content descriptions -->
+    <string name="cd_leaderboard">リーダーボード</string>
+    <string name="cd_restart">新しいゲーム</string>
+    <string name="cd_settings">設定</string>
+    <!-- New game dialog -->
+    <string name="new_game_title">新しいゲーム</string>
+    <string name="new_game_body">新しいゲームを始めますか？現在のゲームは元に戻せません。</string>
+    <string name="start">開始</string>
+    <string name="cancel">キャンセル</string>
+    <!-- Settings -->
+    <string name="settings_title">設定</string>
+    <string name="theme_light">ライトテーマ</string>
+    <string name="theme_dark">ダークテーマ</string>
+    <string name="fast_anim_title">アニメーションを速くする</string>
+    <string name="fast_anim_desc">コンボをより速く連鎖させます。</string>
+    <string name="vibration_title">バイブレーションを有効にする</string>
+    <string name="vibration_desc">操作のたびに振動します。</string>
+    <string name="sound_title">サウンドを有効にする</string>
+    <string name="sound_desc">操作のたびに効果音が鳴ります。</string>
+    <!-- Game state -->
+    <string name="undo">元に戻す</string>
+    <string name="you_win">クリア！</string>
+    <string name="continue_playing">続ける</string>
+    <string name="game_over">ゲームオーバー</string>
+    <string name="leaderboard_unavailable">リーダーボードを利用できません</string>
+    <!-- Language selector -->
+    <string name="language_title">言語</string>
+    <string name="language_system">システムの既定</string>
+
+    <!-- Gameplay tips (rotating carousel) -->
+    <string name="cd_tip">ヒント</string>
+    <string-array name="game_tips">
+        <item>一番大きいタイルは隅にキープしましょう。</item>
+        <item>タイルを一辺に沿って大きい順に並べましょう。</item>
+        <item>主な方向を決め、隅を崩す方向は避けましょう。</item>
+        <item>2、3手先を読みましょう。</item>
+        <item>小さいタイルは早めに合体させて空きを作りましょう。</item>
+        <item>むやみにスワイプせず、1列をきれいに保ちましょう。</item>
+        <item>盤面が埋まっても諦めず、合体できる場所を探しましょう。</item>
+    </string-array>
+
+    <!-- Premium selector -->
+    <string name="premium_title">プレミアムアクセス</string>
+    <string name="premium_desc">希望の価格帯を選んで、すべてのプレミアム提案を解除しましょう。</string>
+    <string name="premium_slogan">一度購入すればずっと使えます。広告なし。</string>
+    <string name="premium_most_selected">最も選ばれています</string>
+    <string name="plan_basic">ベーシック</string>
+    <string name="plan_standard">スタンダード</string>
+    <string name="plan_plus">プラス</string>
+    <string name="plan_pro">プロ</string>
+    <string name="plan_lifetime">永久</string>
+</resources>

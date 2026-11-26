@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="app_background">#002B36</color>   <!-- Base03 -->
+    <color name="app_surface">#073642</color>      <!-- Base02 -->
+    <color name="app_text">#839496</color>         <!-- Base0 -->
+    <color name="app_text_emphasis">#93A1A1</color> <!-- Base1 -->
+    <color name="app_stroke">#33839496</color>
+    <color name="app_price">#CB4B16</color>
+    <color name="app_badge">#B58900</color>
+    <color name="app_on_badge">#FDF6E3</color>
+</resources>
