@@ -12,7 +12,7 @@ private val LightScheme = lightColorScheme(
     onBackground = BodyTextLight,
     onSurface = BodyTextLight,
     primary = Accent,
-    onPrimary = Base3,
+    onPrimary = Snow,
 )
 
 private val DarkScheme = darkColorScheme(
@@ -21,7 +21,7 @@ private val DarkScheme = darkColorScheme(
     onBackground = BodyTextDark,
     onSurface = BodyTextDark,
     primary = Accent,
-    onPrimary = Base3,
+    onPrimary = Snow,
 )
 
 @Composable

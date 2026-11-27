@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.gghez.game2048"
+    package="com.ggitb.genmerge.game2048"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -25,10 +25,10 @@
     <uses-permission android:name="com.android.vending.BILLING" />
 
     <permission
-        android:name="com.gghez.game2048.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+        android:name="com.ggitb.genmerge.game2048.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
         android:protectionLevel="signature" />
 
-    <uses-permission android:name="com.gghez.game2048.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" /> <!-- Although the *SdkVersion is captured in gradle build files, this is required for non gradle builds -->
+    <uses-permission android:name="com.ggitb.genmerge.game2048.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" /> <!-- Although the *SdkVersion is captured in gradle build files, this is required for non gradle builds -->
     <!-- <uses-sdk android:minSdkVersion="14"/> -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -84,7 +84,7 @@
 
         <provider
             android:name="com.google.android.gms.games.provider.PlayGamesInitProvider"
-            android:authorities="com.gghez.game2048.playgamesinitprovider"
+            android:authorities="com.ggitb.genmerge.game2048.playgamesinitprovider"
             android:exported="false"
             android:initOrder="99" />
 
@@ -125,7 +125,7 @@
 
         <provider
             android:name="androidx.startup.InitializationProvider"
-            android:authorities="com.gghez.game2048.androidx-startup"
+            android:authorities="com.ggitb.genmerge.game2048.androidx-startup"
             android:exported="false" >
             <meta-data
                 android:name="androidx.lifecycle.ProcessLifecycleInitializer"

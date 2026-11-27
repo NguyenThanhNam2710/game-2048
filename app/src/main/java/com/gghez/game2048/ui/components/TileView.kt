@@ -18,7 +18,7 @@ import com.gghez.game2048.ui.theme.TileColors
 fun TileView(value: Int, dark: Boolean, modifier: Modifier = Modifier) {
     BoxWithConstraints(
         modifier = modifier
-            .clip(RoundedCornerShape(8.dp))
+            .clip(RoundedCornerShape(12.dp))
             .background(TileColors.bg(value, dark)),
         contentAlignment = Alignment.Center,
     ) {

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">2exp11</string>
+
     <!-- Score row -->
     <string name="score">PUNTEGGIO</string>
     <string name="best_score">MIGLIOR PUNTEGGIO</string>
@@ -36,13 +36,13 @@
     <!-- Gameplay tips (rotating carousel) -->
     <string name="cd_tip">Consiglio</string>
     <string-array name="game_tips">
-        <item>Tieni la tua tessera più grande in un angolo.</item>
-        <item>Disponi le tessere in ordine decrescente lungo un bordo.</item>
-        <item>Scegli una direzione principale ed evita quella che rovina il tuo angolo.</item>
-        <item>Pensa con due o tre mosse di anticipo.</item>
-        <item>Unisci presto le tessere piccole per liberare spazio.</item>
-        <item>Non scorrere a caso: mantieni una riga ben ordinata.</item>
-        <item>Una griglia piena non è persa: cerca le combinazioni possibili.</item>
+        <item>Tieni la tessera più alta in un angolo e non spostarla mai.</item>
+        <item>Costruisci uno schema a serpente: fai scendere le tessere a zigzag sulla griglia.</item>
+        <item>Usa solo due o tre direzioni di scorrimento e la quarta soltanto in caso di emergenza.</item>
+        <item>Pianifica le prossime mosse prima di scorrere, non dopo.</item>
+        <item>Unisci spesso le tessere di basso valore così non ingombrano la griglia.</item>
+        <item>Tieni piena la riga in basso così le tessere non escono dalla loro posizione.</item>
+        <item>Mantieni la calma quando la griglia si riempie: una buona fusione può liberare tutto.</item>
     </string-array>
 
     <!-- Premium selector -->
@@ -55,4 +55,6 @@
     <string name="plan_plus">Plus</string>
     <string name="plan_pro">Pro</string>
     <string name="plan_lifetime">A vita</string>
+    <string name="history_title">Cronologia</string>
+    <string name="history_empty">Nessuna partita giocata finora.</string>
 </resources>

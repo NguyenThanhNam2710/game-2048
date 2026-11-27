@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">2exp11</string>
+
 
     <!-- Score row -->
     <string name="score">SCORE</string>
@@ -42,13 +42,13 @@
     <!-- Gameplay tips (rotating carousel) -->
     <string name="cd_tip">Astuce</string>
     <string-array name="game_tips">
-        <item>Gardez votre plus grosse tuile dans un coin.</item>
-        <item>Rangez vos tuiles en ordre décroissant le long d\'un bord.</item>
-        <item>Choisissez une direction principale et évitez celle qui casse votre coin.</item>
-        <item>Anticipez deux ou trois coups à l\'avance.</item>
-        <item>Fusionnez les petites tuiles tôt pour libérer de l\'espace.</item>
-        <item>Ne glissez pas au hasard : gardez une ligne bien ordonnée.</item>
-        <item>Une grille pleine n\'est pas perdue : cherchez les fusions possibles.</item>
+        <item>Gardez votre plus grosse tuile dans un coin et ne la déplacez jamais.</item>
+        <item>Créez un motif en serpent : faites descendre les tuiles en zigzag sur la grille.</item>
+        <item>Limitez-vous à deux ou trois directions de balayage et n\'utilisez la quatrième qu\'en cas d\'urgence.</item>
+        <item>Planifiez vos prochains coups avant de balayer, pas après.</item>
+        <item>Fusionnez souvent les petites tuiles pour qu\'elles n\'encombrent pas la grille.</item>
+        <item>Gardez la rangée du bas pleine pour que vos tuiles ne se déplacent pas.</item>
+        <item>Restez calme quand la grille se remplit : une bonne fusion peut tout débloquer.</item>
     </string-array>
 
     <!-- Premium selector -->
@@ -61,4 +61,6 @@
     <string name="plan_plus">Plus</string>
     <string name="plan_pro">Pro</string>
     <string name="plan_lifetime">À vie</string>
+    <string name="history_title">Historique</string>
+    <string name="history_empty">Aucune partie jouée pour le moment.</string>
 </resources>

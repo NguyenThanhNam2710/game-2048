@@ -1,17 +1,17 @@
-#Fri Nov 27 01:38:14 ICT 2026
-base.0=/Users/nathang/StudioProjects/game-2048/app/build/intermediates/dex/debug/mergeExtDexDebug/classes.dex
-base.1=/Users/nathang/StudioProjects/game-2048/app/build/intermediates/dex/debug/mergeProjectDexDebug/0/classes.dex
-base.10=/Users/nathang/StudioProjects/game-2048/app/build/intermediates/dex/debug/mergeProjectDexDebug/8/classes.dex
-base.11=/Users/nathang/StudioProjects/game-2048/app/build/intermediates/dex/debug/mergeExtDexDebug/classes2.dex
-base.12=/Users/nathang/StudioProjects/game-2048/app/build/intermediates/dex/debug/mergeExtDexDebug/classes3.dex
-base.2=/Users/nathang/StudioProjects/game-2048/app/build/intermediates/dex/debug/mergeProjectDexDebug/1/classes.dex
-base.3=/Users/nathang/StudioProjects/game-2048/app/build/intermediates/dex/debug/mergeProjectDexDebug/11/classes.dex
-base.4=/Users/nathang/StudioProjects/game-2048/app/build/intermediates/dex/debug/mergeProjectDexDebug/12/classes.dex
-base.5=/Users/nathang/StudioProjects/game-2048/app/build/intermediates/dex/debug/mergeProjectDexDebug/13/classes.dex
-base.6=/Users/nathang/StudioProjects/game-2048/app/build/intermediates/dex/debug/mergeProjectDexDebug/15/classes.dex
-base.7=/Users/nathang/StudioProjects/game-2048/app/build/intermediates/dex/debug/mergeProjectDexDebug/2/classes.dex
-base.8=/Users/nathang/StudioProjects/game-2048/app/build/intermediates/dex/debug/mergeProjectDexDebug/6/classes.dex
-base.9=/Users/nathang/StudioProjects/game-2048/app/build/intermediates/dex/debug/mergeProjectDexDebug/7/classes.dex
+#Fri Nov 27 10:01:57 ICT 2026
+base.0=/Users/namnt97/StudioProjects/game-2048/app/build/intermediates/dex/debug/mergeExtDexDebug/classes.dex
+base.1=/Users/namnt97/StudioProjects/game-2048/app/build/intermediates/dex/debug/mergeProjectDexDebug/0/classes.dex
+base.10=/Users/namnt97/StudioProjects/game-2048/app/build/intermediates/dex/debug/mergeProjectDexDebug/8/classes.dex
+base.11=/Users/namnt97/StudioProjects/game-2048/app/build/intermediates/dex/debug/mergeExtDexDebug/classes2.dex
+base.12=/Users/namnt97/StudioProjects/game-2048/app/build/intermediates/dex/debug/mergeExtDexDebug/classes3.dex
+base.2=/Users/namnt97/StudioProjects/game-2048/app/build/intermediates/dex/debug/mergeProjectDexDebug/1/classes.dex
+base.3=/Users/namnt97/StudioProjects/game-2048/app/build/intermediates/dex/debug/mergeProjectDexDebug/11/classes.dex
+base.4=/Users/namnt97/StudioProjects/game-2048/app/build/intermediates/dex/debug/mergeProjectDexDebug/12/classes.dex
+base.5=/Users/namnt97/StudioProjects/game-2048/app/build/intermediates/dex/debug/mergeProjectDexDebug/13/classes.dex
+base.6=/Users/namnt97/StudioProjects/game-2048/app/build/intermediates/dex/debug/mergeProjectDexDebug/15/classes.dex
+base.7=/Users/namnt97/StudioProjects/game-2048/app/build/intermediates/dex/debug/mergeProjectDexDebug/2/classes.dex
+base.8=/Users/namnt97/StudioProjects/game-2048/app/build/intermediates/dex/debug/mergeProjectDexDebug/6/classes.dex
+base.9=/Users/namnt97/StudioProjects/game-2048/app/build/intermediates/dex/debug/mergeProjectDexDebug/7/classes.dex
 path.0=classes.dex
 path.1=0/classes.dex
 path.10=8/classes.dex

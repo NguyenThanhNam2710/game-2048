@@ -6,8 +6,9 @@
     android:padding="24dp">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:text="@string/premium_title"
         android:textColor="@color/app_text_emphasis"
         android:textSize="28sp"
@@ -17,22 +18,25 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:layout_marginBottom="24dp"
+        android:gravity="center"
         android:text="@string/premium_desc"
         android:textColor="@color/app_text"
         android:textSize="16sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="20dp"
+        android:gravity="center"
+        android:text="@string/premium_slogan"
+        android:textColor="@color/app_price"
+        android:textSize="14sp"
+        android:textStyle="bold" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvPlans"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="@string/premium_slogan"
-        android:textColor="@color/app_text"
-        android:textSize="14sp" />
 </LinearLayout>

@@ -4,7 +4,7 @@
             "outputFile": "com.gghez.game2048.app-mergeDebugResources-62:/values-w320dp-land-v13/values-w320dp-land-v13.xml",
             "map": [
                 {
-                    "source": "/Users/nathang/.gradle/caches/8.13/transforms/0e695b408f7fefdc89df4c58a49b6895/transformed/material-1.12.0/res/values-w320dp-land-v13/values-w320dp-land-v13.xml",
+                    "source": "/Users/namnt97/.gradle/caches/8.13/transforms/0e695b408f7fefdc89df4c58a49b6895/transformed/material-1.12.0/res/values-w320dp-land-v13/values-w320dp-land-v13.xml",
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",

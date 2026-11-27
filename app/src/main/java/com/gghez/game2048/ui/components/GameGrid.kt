@@ -83,7 +83,7 @@ fun GameGrid(
         modifier = modifier
             .fillMaxWidth()
             .aspectRatio(1f)
-            .clip(RoundedCornerShape(12.dp))
+            .clip(RoundedCornerShape(16.dp))
             .background(if (dark) BoardDark else BoardLight)
             .padding(6.dp)
             .pointerInput(Unit) {
@@ -121,7 +121,7 @@ fun GameGrid(
                                     .weight(1f)
                                     .fillMaxSize()
                                     .padding(4.dp)
-                                    .clip(RoundedCornerShape(8.dp))
+                                    .clip(RoundedCornerShape(12.dp))
                                     .background(if (dark) EmptyCellDark else EmptyCellLight),
                             )
                         }
@@ -219,7 +219,7 @@ private fun MovableTile(value: Int, row: Int, col: Int, cell: Dp, dark: Boolean,
             Box(
                 Modifier
                     .matchParentSize()
-                    .clip(RoundedCornerShape(8.dp))
+                    .clip(RoundedCornerShape(12.dp))
                     .background(Color.White.copy(alpha = glow.value)),
             )
         }

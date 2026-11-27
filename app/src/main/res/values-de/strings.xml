@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">2exp11</string>
+
     <!-- Score row -->
     <string name="score">SCORE</string>
     <string name="best_score">BEST SCORE</string>
@@ -36,13 +36,13 @@
     <!-- Gameplay tips (rotating carousel) -->
     <string name="cd_tip">Tipp</string>
     <string-array name="game_tips">
-        <item>Behalte deine größte Kachel in einer Ecke.</item>
-        <item>Ordne deine Kacheln entlang einer Kante absteigend an.</item>
-        <item>Wähle eine Hauptrichtung und vermeide die, die deine Ecke zerstört.</item>
-        <item>Denke zwei oder drei Züge voraus.</item>
-        <item>Führe kleine Kacheln früh zusammen, um Platz zu schaffen.</item>
-        <item>Wische nicht zufällig: Halte eine Reihe gut geordnet.</item>
-        <item>Ein volles Feld ist nicht verloren: Suche nach möglichen Verschmelzungen.</item>
+        <item>Halte dein höchstes Plättchen in einer Ecke und bewege es nie.</item>
+        <item>Baue ein Schlangenmuster: Lass die Plättchen im Zickzack über das Brett absteigen.</item>
+        <item>Bleibe bei zwei oder drei Wischrichtungen und nutze die vierte nur im Notfall.</item>
+        <item>Plane deine nächsten Züge vor dem Wischen, nicht danach.</item>
+        <item>Kombiniere kleine Plättchen oft, damit sie das Brett nicht verstopfen.</item>
+        <item>Halte die untere Reihe gefüllt, damit deine Plättchen nicht verrutschen.</item>
+        <item>Bleib ruhig, wenn das Brett voll wird: Ein guter Zug kann alles wieder öffnen.</item>
     </string-array>
 
     <!-- Premium selector -->
@@ -55,4 +55,6 @@
     <string name="plan_plus">Plus</string>
     <string name="plan_pro">Pro</string>
     <string name="plan_lifetime">Lebenslang</string>
+    <string name="history_title">Verlauf</string>
+    <string name="history_empty">Noch keine Spiele gespielt.</string>
 </resources>

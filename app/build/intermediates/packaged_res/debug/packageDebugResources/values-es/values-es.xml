@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="game_tips">
-        <item>Mantén tu ficha más grande en una esquina.</item>
-        <item>Ordena tus fichas de mayor a menor a lo largo de un borde.</item>
-        <item>Elige una dirección principal y evita la que rompe tu esquina.</item>
-        <item>Piensa con dos o tres movimientos de antelación.</item>
-        <item>Combina las fichas pequeñas pronto para liberar espacio.</item>
-        <item>No deslices al azar: mantén una fila bien ordenada.</item>
-        <item>Un tablero lleno no está perdido: busca las combinaciones posibles.</item>
+        <item>Ancla tu ficha más alta en una esquina y no la muevas nunca.</item>
+        <item>Crea un patrón de serpiente: deja que las fichas desciendan en zigzag por el tablero.</item>
+        <item>Usa solo dos o tres direcciones de deslizamiento y la cuarta únicamente en una emergencia.</item>
+        <item>Planifica tus próximos movimientos antes de deslizar, no después.</item>
+        <item>Combina a menudo las fichas de poco valor para que no saturen el tablero.</item>
+        <item>Mantén llena la fila inferior para que tus fichas no se descoloquen.</item>
+        <item>Mantén la calma cuando el tablero se llene: una buena fusión puede abrirlo todo.</item>
     </string-array>
-    <string name="app_name">2exp11</string>
     <string name="best_score">MEJOR PUNTUACIÓN</string>
     <string name="cancel">CANCELAR</string>
     <string name="cd_leaderboard">Clasificaciones</string>
@@ -20,6 +19,8 @@
     <string name="fast_anim_desc">Encadena combos más rápido.</string>
     <string name="fast_anim_title">Acelerar las animaciones</string>
     <string name="game_over">Fin de la partida</string>
+    <string name="history_empty">Aún no has jugado ninguna partida.</string>
+    <string name="history_title">Historial</string>
     <string name="language_system">Predeterminado del sistema</string>
     <string name="language_title">Idioma</string>
     <string name="leaderboard_unavailable">Clasificación no disponible</string>

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">2exp11</string>
+
     <!-- Score row -->
     <string name="score">ניקוד</string>
     <string name="best_score">השיא</string>
@@ -36,13 +36,13 @@
     <!-- Gameplay tips (rotating carousel) -->
     <string name="cd_tip">טיפ</string>
     <string-array name="game_tips">
-        <item>שמרו את האריח הגדול ביותר בפינה.</item>
-        <item>סדרו את האריחים בסדר יורד לאורך קצה אחד.</item>
-        <item>בחרו כיוון עיקרי והימנעו מהכיוון שהורס את הפינה שלכם.</item>
-        <item>חשבו שניים-שלושה מהלכים קדימה.</item>
-        <item>אחדו אריחים קטנים מוקדם כדי לפנות מקום.</item>
-        <item>אל תחליקו באקראי: שמרו על שורה אחת מסודרת היטב.</item>
-        <item>לוח מלא אינו אבוד: חפשו איחודים אפשריים.</item>
+        <item>שמרו את האריח הגבוה ביותר בפינה אחת ולעולם אל תזיזו אותו.</item>
+        <item>בנו תבנית נחש: תנו לאריחים לרדת בזיגזג על פני הלוח.</item>
+        <item>היצמדו לשניים או שלושה כיווני החלקה, והשתמשו ברביעי רק במצב חירום.</item>
+        <item>תכננו את המהלכים הבאים לפני ההחלקה, לא אחריה.</item>
+        <item>מזגו לעיתים קרובות אריחים בעלי ערך נמוך כדי שלא ימלאו את הלוח.</item>
+        <item>השאירו את השורה התחתונה מלאה כדי שהאריחים לא יחליקו ממקומם.</item>
+        <item>שמרו על קור רוח כשהלוח מתמלא: מיזוג טוב אחד יכול לפתוח הכול.</item>
     </string-array>
 
     <!-- Premium selector -->
@@ -55,4 +55,6 @@
     <string name="plan_plus">פלוס</string>
     <string name="plan_pro">פרו</string>
     <string name="plan_lifetime">לכל החיים</string>
+    <string name="history_title">היסטוריה</string>
+    <string name="history_empty">עדיין לא שוחקו משחקים.</string>
 </resources>

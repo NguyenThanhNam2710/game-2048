@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="game_tips">
-        <item>把最大的方块留在角落。</item>
-        <item>沿着一条边把方块按从大到小排列。</item>
-        <item>选定一个主方向，避免会破坏角落的那个方向。</item>
-        <item>提前想好两三步。</item>
-        <item>尽早合并小方块以腾出空间。</item>
-        <item>不要随意滑动：保持一行井然有序。</item>
-        <item>棋盘填满也未必输：寻找可以合并的方块。</item>
+        <item>把最大的方块固定在一个角落，并且永远不要移动它。</item>
+        <item>构建蛇形排列：让方块沿着棋盘以之字形依次递减。</item>
+        <item>尽量只用两到三个滑动方向，第四个方向仅在紧急时使用。</item>
+        <item>滑动之前先想好接下来的几步，而不是事后再想。</item>
+        <item>经常合并小数值的方块，避免棋盘变得杂乱。</item>
+        <item>保持最下面一行填满，这样方块就不会滑出原位。</item>
+        <item>棋盘变拥挤时保持冷静：一次好的合并就能让局面豁然开朗。</item>
     </string-array>
-    <string name="app_name">2exp11</string>
     <string name="best_score">最高分</string>
     <string name="cancel">取消</string>
     <string name="cd_leaderboard">排行榜</string>
@@ -20,6 +19,8 @@
     <string name="fast_anim_desc">更快地连续合并。</string>
     <string name="fast_anim_title">加快动画</string>
     <string name="game_over">游戏结束</string>
+    <string name="history_empty">还没有玩过的游戏。</string>
+    <string name="history_title">历史记录</string>
     <string name="language_system">系统默认</string>
     <string name="language_title">语言</string>
     <string name="leaderboard_unavailable">排行榜不可用</string>

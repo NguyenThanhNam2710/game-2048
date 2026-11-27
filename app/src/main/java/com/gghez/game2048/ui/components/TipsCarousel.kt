@@ -2,6 +2,7 @@ package com.gghez.game2048.ui.components
 
 import androidx.compose.animation.Crossfade
 import androidx.compose.animation.core.tween
+import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
@@ -56,7 +57,8 @@ fun TipsCarousel(fastAnimations: Boolean, modifier: Modifier = Modifier) {
         modifier = modifier
             .fillMaxWidth()
             .clip(RoundedCornerShape(12.dp))
-            .border(1.dp, border, RoundedCornerShape(12.dp))
+            .clip(RoundedCornerShape(16.dp))
+            .background(MaterialTheme.colorScheme.surface)
             .heightIn(min = 48.dp),
     ) { i ->
         Row(

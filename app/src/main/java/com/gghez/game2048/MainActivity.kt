@@ -32,9 +32,9 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import java.util.Locale
 import kotlin.jvm.java
+import com.gghez.game2048.ui.history.HistoryBottomSheet
 
 class MainActivity : ComponentActivity() {
-
     private var vm: GameViewModel? = null
     // Silent sign-in needs an attached Activity, which only exists from onResume.
     // Fire it once per process the first time we attach, so a relaunch of the
@@ -60,6 +60,8 @@ class MainActivity : ComponentActivity() {
             val dark = ui.settings.theme == ThemeMode.DARK
 
             var showSettings by remember { mutableStateOf(false) }
+            val history by viewModel.history.collectAsStateWithLifecycle()
+            var showHistory by remember { mutableStateOf(false) }   // mới
 
             Game2048Theme(darkTheme = dark) {
                 // Surface paints the themed background edge-to-edge and, crucially,
@@ -88,9 +90,14 @@ class MainActivity : ComponentActivity() {
                                         .putExtra(PremiumActivity.EXTRA_DARK, dark)
                                 )
                             },
+                            onOpenHistory = { showHistory = true }
                         )
                     }
                 }
+                if (showHistory) {
+                    HistoryBottomSheet(records = history, dark = dark, onDismiss = { showHistory = false })
+                }
+
                 if (showSettings) {
                     SettingsBottomSheet(
                         settings = ui.settings,

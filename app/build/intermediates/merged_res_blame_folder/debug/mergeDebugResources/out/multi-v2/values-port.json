@@ -4,7 +4,7 @@
             "outputFile": "com.gghez.game2048.app-mergeDebugResources-62:/values-port/values-port.xml",
             "map": [
                 {
-                    "source": "/Users/nathang/.gradle/caches/8.13/transforms/3872321afaebee19e30f06ac42cf89a8/transformed/appcompat-1.7.0/res/values-port/values-port.xml",
+                    "source": "/Users/namnt97/.gradle/caches/8.13/transforms/3872321afaebee19e30f06ac42cf89a8/transformed/appcompat-1.7.0/res/values-port/values-port.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

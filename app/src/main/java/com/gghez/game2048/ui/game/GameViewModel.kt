@@ -29,6 +29,10 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
+import com.gghez.game2048.data.history.GameRecord
+import com.gghez.game2048.data.history.HistoryRepository
+import kotlinx.coroutines.flow.SharingStarted
+import kotlinx.coroutines.flow.stateIn
 
 /**
  * Owns the authoritative game state and exposes it as a single immutable
@@ -42,6 +46,7 @@ import kotlinx.coroutines.launch
 class GameViewModel(
     private val settingsRepo: SettingsRepository,
     private val scoreRepo: ScoreRepository,
+    private val historyRepo: HistoryRepository,
     private val leaderboard: LeaderboardRepository,
     private val feedback: GameFeedback,
 ) : ViewModel() {
@@ -56,6 +61,21 @@ class GameViewModel(
     private var paused = false
 
     private val _ui = MutableStateFlow(GameUiState.initial(GameSettings()))
+    val history: StateFlow<List<GameRecord>> =
+        historyRepo.records.stateIn(viewModelScope, SharingStarted.Lazily, emptyList())
+
+    private suspend fun recordGame(state: GameState, elapsed: Long) {
+        if (state.moves == 0) return
+        historyRepo.add(
+            GameRecord(
+                timestamp = System.currentTimeMillis(),
+                score = state.score,
+                moves = state.moves,
+                elapsedSeconds = elapsed,
+                maxTile = state.board.values().maxOrNull() ?: 0,
+            )
+        )
+    }
     val ui: StateFlow<GameUiState> = _ui.asStateFlow()
 
     init {
@@ -139,6 +159,7 @@ class GameViewModel(
         viewModelScope.launch {
             scoreRepo.updateBestScore(spawned.score)
             if (spawned.status == GameStatus.LOST || spawned.status == GameStatus.WON) submitScores(spawned)
+            if (spawned.status == GameStatus.LOST) recordGame(spawned, _ui.value.elapsedSeconds)  // mới
             persist()
         }
     }
@@ -159,6 +180,7 @@ class GameViewModel(
     }
 
     fun confirmNewGame() {
+        val old = _ui.value   // mới
         val fresh = engine.newGame(spawner, ::nextId)
         previous = null
         _ui.value = _ui.value.copy(
@@ -168,6 +190,8 @@ class GameViewModel(
             canUndo = false,
         )
         viewModelScope.launch {
+            // Ván đã thua thì đã được ghi ở onSwipe, nên chỉ ghi ván bỏ dở
+            if (old.state.status != GameStatus.LOST) recordGame(old.state, old.elapsedSeconds)  // mới
             scoreRepo.clearSavedGame()
             persist()
         }
@@ -223,6 +247,7 @@ class GameViewModel(
                 GameViewModel(
                     app.container.settingsRepo,
                     app.container.scoreRepo,
+                    app.container.historyRepo,
                     app.container.leaderboard,
                     app.container.feedback,
                 )

@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="game_tips">
-        <item>가장 큰 타일은 모서리에 두세요.</item>
-        <item>한 가장자리를 따라 타일을 내림차순으로 정렬하세요.</item>
-        <item>주된 방향을 정하고 모서리를 무너뜨리는 방향은 피하세요.</item>
-        <item>두세 수 앞을 내다보세요.</item>
-        <item>작은 타일은 일찍 합쳐 공간을 확보하세요.</item>
-        <item>무작정 밀지 말고 한 줄을 잘 정렬해 두세요.</item>
-        <item>꽉 찬 판도 끝이 아닙니다: 합칠 수 있는 곳을 찾으세요.</item>
+        <item>가장 큰 타일을 한쪽 모서리에 고정하고 절대 움직이지 마세요.</item>
+        <item>뱀 모양 패턴을 만들어 타일이 지그재그로 내려가도록 배치하세요.</item>
+        <item>스와이프는 두세 방향만 사용하고, 네 번째 방향은 비상시에만 쓰세요.</item>
+        <item>스와이프하기 전에 다음 몇 수를 미리 계획하세요.</item>
+        <item>작은 타일은 자주 합쳐서 판이 어지러워지지 않게 하세요.</item>
+        <item>맨 아래 줄을 가득 채워 두면 타일이 제자리를 벗어나지 않습니다.</item>
+        <item>판이 꽉 차도 침착하세요. 좋은 합치기 한 번이면 모든 게 풀릴 수 있어요.</item>
     </string-array>
-    <string name="app_name">2exp11</string>
     <string name="best_score">최고 점수</string>
     <string name="cancel">취소</string>
     <string name="cd_leaderboard">리더보드</string>
@@ -20,6 +19,8 @@
     <string name="fast_anim_desc">콤보를 더 빠르게 연결합니다.</string>
     <string name="fast_anim_title">애니메이션 속도 향상</string>
     <string name="game_over">게임 오버</string>
+    <string name="history_empty">아직 플레이한 게임이 없습니다.</string>
+    <string name="history_title">기록</string>
     <string name="language_system">시스템 기본값</string>
     <string name="language_title">언어</string>
     <string name="leaderboard_unavailable">리더보드를 사용할 수 없습니다</string>

@@ -4,7 +4,7 @@
     "type": "PACKAGED_MANIFESTS",
     "kind": "Directory"
   },
-  "applicationId": "com.gghez.game2048",
+  "applicationId": "com.ggitb.genmerge.game2048",
   "variantName": "debug",
   "elements": [
     {

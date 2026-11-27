@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">2exp11</string>
+    <string name="app_name" translatable="false">Gen Merge: 2exp11</string>
 
     <!-- Score row -->
     <!-- Intentionally kept as short EN all-caps labels in every locale (stylistic, do not translate). -->
@@ -43,13 +43,13 @@
     <!-- Gameplay tips (rotating carousel) -->
     <string name="cd_tip">Tip</string>
     <string-array name="game_tips">
-        <item>Keep your biggest tile in a corner.</item>
-        <item>Line up your tiles in descending order along one edge.</item>
-        <item>Pick a main direction and avoid the one that breaks your corner.</item>
-        <item>Think two or three moves ahead.</item>
-        <item>Merge small tiles early to free up space.</item>
-        <item>Don\'t swipe at random: keep one row well ordered.</item>
-        <item>A full grid isn\'t lost: look for possible merges.</item>
+        <item>Anchor your highest tile in one corner and never move it.</item>
+        <item>Build a snake pattern: let tiles descend in a zigzag across the board.</item>
+        <item>Stick to two or three swipe directions; use the fourth only in an emergency.</item>
+        <item>Plan your next few moves before you swipe, not after.</item>
+        <item>Combine low-value tiles often so they don\'t clutter the board.</item>
+        <item>Keep the bottom row full so your tiles can\'t slide out of place.</item>
+        <item>Stay calm when the board gets crowded: one good merge can open up everything.</item>
     </string-array>
 
     <!-- Premium selector -->
@@ -62,4 +62,7 @@
     <string name="plan_plus">Plus</string>
     <string name="plan_pro">Pro</string>
     <string name="plan_lifetime">Lifetime</string>
+
+    <string name="history_title">History</string>
+    <string name="history_empty">No games played yet.</string>
 </resources>

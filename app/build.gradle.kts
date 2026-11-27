@@ -18,7 +18,7 @@ android {
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.gghez.game2048"
+        applicationId = "com.ggitb.genmerge.game2048"
         minSdk = 24
         targetSdk = 35
         // Tag-driven on CI: the release workflow exports VERSION_CODE / VERSION_NAME

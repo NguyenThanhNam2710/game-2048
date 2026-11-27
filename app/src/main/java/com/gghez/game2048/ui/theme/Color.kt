@@ -2,72 +2,54 @@ package com.gghez.game2048.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
-// Solarized palette (Ethan Schoonover) — https://ethanschoonover.com/solarized/
-// Base tones
-val Base03 = Color(0xFF002B36) // darkest background (dark mode)
-val Base02 = Color(0xFF073642) // dark highlight background
-val Base01 = Color(0xFF586E75) // light-mode emphasized text / dark-mode comments
-val Base00 = Color(0xFF657B83) // light-mode body text
-val Base0 = Color(0xFF839496)  // dark-mode body text
-val Base1 = Color(0xFF93A1A1)  // dark-mode emphasized text / light highlight
-val Base2 = Color(0xFFEEE8D5)  // light highlight background
-val Base3 = Color(0xFFFDF6E3)  // lightest background (light mode)
-// Accents (mode-agnostic)
-val Yellow = Color(0xFFB58900)
-val Orange = Color(0xFFCB4B16)
-val SolarRed = Color(0xFFDC322F)
-val Magenta = Color(0xFFD33682)
-val Violet = Color(0xFF6C71C4)
-val Blue = Color(0xFF268BD2)
-val Cyan = Color(0xFF2AA198)
-val Green = Color(0xFF859900)
+// Aurora palette
+val Ink = Color(0xFF2E2A45)
+val Snow = Color(0xFFFFFFFF)
 
-// Semantic aliases used by the Material color scheme
-val AppBackgroundLight = Base3
-val SurfaceLight = Base2
-val BodyTextLight = Base00
-val EmphasizedTextLight = Base01
+val AppBackgroundLight = Color(0xFFF4F1FA)
+val SurfaceLight = Color(0xFFE8E2F6)
+val BodyTextLight = Color(0xFF5B5675)
+val EmphasizedTextLight = Ink
 
-val AppBackgroundDark = Base03
-val SurfaceDark = Base02
-val BodyTextDark = Base0
-val EmphasizedTextDark = Base1
+val AppBackgroundDark = Color(0xFF14121F)
+val SurfaceDark = Color(0xFF231F36)
+val BodyTextDark = Color(0xFFB9B3D1)
+val EmphasizedTextDark = Color(0xFFE6E1F5)
 
-// Board & empty cells follow the highlighted-surface tone of the active mode.
-val BoardLight = Base2
-val EmptyCellLight = Base3
-val BoardDark = Base02
-val EmptyCellDark = Base03
+// Board & empty cells
+val BoardLight = Color(0xFFDDD5F0)
+val EmptyCellLight = Color(0xFFEEE9F9)
+val BoardDark = Color(0xFF231F36)
+val EmptyCellDark = Color(0xFF181526)
 
-// Shared accent for primary controls
-val Accent = Blue
+val Accent = Color(0xFF7C5CFF)
 
 object TileColors {
-    // Accent tiles (8 and above) are mode-agnostic, per Solarized's design intent.
-    // Light text reads cleanly on every accent.
-    private val accentPalette = mapOf(
-        8 to (Yellow to Base3),
-        16 to (Orange to Base3),
-        32 to (SolarRed to Base3),
-        64 to (Magenta to Base3),
-        128 to (Violet to Base3),
-        256 to (Blue to Base3),
-        512 to (Cyan to Base3),
-        1024 to (Green to Base3),
-        2048 to (Yellow to Base3),
+    private val Violet = Color(0xFF9B7BFF)
+    private val Indigo = Color(0xFF7C5CFF)
+    private val Blue = Color(0xFF4F8CFF)
+    private val Teal = Color(0xFF22B8CF)
+    private val Mint = Color(0xFF2FBF8F)
+    private val Lime = Color(0xFF8BC34A)
+    private val Amber = Color(0xFFF5B83D)
+    private val Orange = Color(0xFFFF8A4C)
+    private val Pink = Color(0xFFFF5C7A)
+    private val Hot = Color(0xFFFF3D68)
+
+    private val accent = mapOf(
+        8 to Violet, 16 to Indigo, 32 to Blue, 64 to Teal, 128 to Mint,
+        256 to Lime, 512 to Amber, 1024 to Orange, 2048 to Pink,
     )
-    // Gold emphasis for anything beyond 2048.
-    private val fallback = Yellow to Base3
 
     fun bg(value: Int, dark: Boolean): Color = when (value) {
-        2 -> if (dark) Base02 else Base2
-        4 -> Base1
-        else -> accentPalette[value]?.first ?: fallback.first
+        2 -> if (dark) Color(0xFF2E2948) else Color(0xFFE4DCF7)
+        4 -> if (dark) Color(0xFF3C3560) else Color(0xFFCFC2F2)
+        else -> accent[value] ?: Hot
     }
 
     fun fg(value: Int, dark: Boolean): Color = when (value) {
-        2 -> if (dark) Base1 else Base01
-        4 -> Base03
-        else -> accentPalette[value]?.second ?: fallback.second
+        2, 4 -> if (dark) Color(0xFFE6E1F5) else Ink
+        512 -> Ink // vàng sáng, chữ trắng khó đọc
+        else -> Snow
     }
 }

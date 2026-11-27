@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="game_tips">
-        <item>一番大きいタイルは隅にキープしましょう。</item>
-        <item>タイルを一辺に沿って大きい順に並べましょう。</item>
-        <item>主な方向を決め、隅を崩す方向は避けましょう。</item>
-        <item>2、3手先を読みましょう。</item>
-        <item>小さいタイルは早めに合体させて空きを作りましょう。</item>
-        <item>むやみにスワイプせず、1列をきれいに保ちましょう。</item>
-        <item>盤面が埋まっても諦めず、合体できる場所を探しましょう。</item>
+        <item>一番大きいタイルを角に固定し、決して動かさないようにしましょう。</item>
+        <item>蛇行パターンを作り、タイルをジグザグに大きい順に並べましょう。</item>
+        <item>スワイプは2〜3方向に絞り、4つ目の方向は緊急時だけにしましょう。</item>
+        <item>スワイプする前に、数手先まで考えましょう。</item>
+        <item>小さいタイルはこまめに合体させて、盤面を散らかさないようにしましょう。</item>
+        <item>一番下の行を埋めておくと、タイルがずれにくくなります。</item>
+        <item>盤面が埋まってきても落ち着いて。良い合体が一つあれば一気に空きます。</item>
     </string-array>
-    <string name="app_name">2exp11</string>
     <string name="best_score">ベストスコア</string>
     <string name="cancel">キャンセル</string>
     <string name="cd_leaderboard">リーダーボード</string>
@@ -20,6 +19,8 @@
     <string name="fast_anim_desc">コンボをより速く連鎖させます。</string>
     <string name="fast_anim_title">アニメーションを速くする</string>
     <string name="game_over">ゲームオーバー</string>
+    <string name="history_empty">まだプレイした記録がありません。</string>
+    <string name="history_title">履歴</string>
     <string name="language_system">システムの既定</string>
     <string name="language_title">言語</string>
     <string name="leaderboard_unavailable">リーダーボードを利用できません</string>

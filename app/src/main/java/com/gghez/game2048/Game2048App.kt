@@ -2,6 +2,7 @@ package com.gghez.game2048
 
 import android.app.Application
 import android.content.Context
+import com.gghez.game2048.data.history.HistoryRepository
 import com.gghez.game2048.data.leaderboard.LeaderboardProvider
 import com.gghez.game2048.data.leaderboard.LeaderboardRepository
 import com.gghez.game2048.data.score.ScoreRepository
@@ -15,6 +16,7 @@ class AppContainer(context: Context) {
     val scoreRepo = ScoreRepository(context)
     val leaderboard: LeaderboardRepository = LeaderboardProvider.create(context)
     val feedback: GameFeedback = AndroidGameFeedback(context)
+    val historyRepo = HistoryRepository(context)
 }
 
 class Game2048App : Application() {

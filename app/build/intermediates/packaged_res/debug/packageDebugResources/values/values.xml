@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="game_tips">
-        <item>Keep your biggest tile in a corner.</item>
-        <item>Line up your tiles in descending order along one edge.</item>
-        <item>Pick a main direction and avoid the one that breaks your corner.</item>
-        <item>Think two or three moves ahead.</item>
-        <item>Merge small tiles early to free up space.</item>
-        <item>Don\'t swipe at random: keep one row well ordered.</item>
-        <item>A full grid isn\'t lost: look for possible merges.</item>
+        <item>Anchor your highest tile in one corner and never move it.</item>
+        <item>Build a snake pattern: let tiles descend in a zigzag across the board.</item>
+        <item>Stick to two or three swipe directions; use the fourth only in an emergency.</item>
+        <item>Plan your next few moves before you swipe, not after.</item>
+        <item>Combine low-value tiles often so they don\'t clutter the board.</item>
+        <item>Keep the bottom row full so your tiles can\'t slide out of place.</item>
+        <item>Stay calm when the board gets crowded: one good merge can open up everything.</item>
     </string-array>
-    <color name="app_background">#FDF6E3</color>
-    <color name="app_badge">#B58900</color>
-    <color name="app_on_badge">#FDF6E3</color>
-    <color name="app_price">#CB4B16</color>
-    <color name="app_stroke">#33657B83</color>
-    <color name="app_surface">#EEE8D5</color>
-    <color name="app_text">#657B83</color>
-    <color name="app_text_emphasis">#586E75</color>
-    <string name="app_name">2exp11</string>
+    <color name="app_background">#F4F1FA</color>
+    <color name="app_badge">#FF8A4C</color>
+    <color name="app_on_badge">#FFFFFF</color>
+    <color name="app_price">#7C5CFF</color>
+    <color name="app_stroke">#557C5CFF</color>
+    <color name="app_surface">#E8E2F6</color>
+    <color name="app_text">#5B5675</color>
+    <color name="app_text_emphasis">#2E2A45</color>
+    <string name="app_name" translatable="false">Gen Merge: 2exp11</string>
     <string name="best_score">BEST SCORE</string>
     <string name="cancel">CANCEL</string>
     <string name="cd_leaderboard">Leaderboards</string>
@@ -29,6 +29,8 @@
     <string name="fast_anim_title">Speed up animations</string>
     <string name="game_over">Game over</string>
     <string name="game_services_project_id" translatable="false"/>
+    <string name="history_empty">No games played yet.</string>
+    <string name="history_title">History</string>
     <string name="language_system">System default</string>
     <string name="language_title">Language</string>
     <string name="leaderboard_efficiency" translatable="false"/>

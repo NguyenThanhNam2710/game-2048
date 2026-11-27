@@ -4,7 +4,7 @@
             "outputFile": "com.gghez.game2048.app-mergeDebugResources-62:/values-v30/values-v30.xml",
             "map": [
                 {
-                    "source": "/Users/nathang/.gradle/caches/8.13/transforms/cfd5cb23740d6ba204eed64f2e9a31e0/transformed/material3-release/res/values-v30/values-v30.xml",
+                    "source": "/Users/namnt97/.gradle/caches/8.13/transforms/cfd5cb23740d6ba204eed64f2e9a31e0/transformed/material3-release/res/values-v30/values-v30.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

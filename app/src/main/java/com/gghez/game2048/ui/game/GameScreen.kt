@@ -15,6 +15,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.Undo
 import androidx.compose.material.icons.filled.EmojiEvents
+import androidx.compose.material.icons.filled.History
 import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.Icon
@@ -26,6 +27,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -67,6 +69,7 @@ fun GameScreen(
     onOpenSettings: () -> Unit,
     onOpenLeaderboard: () -> Unit,
     onOpenPremiumScreen: () -> Unit,
+    onOpenHistory: () -> Unit,
 ) {
     val dark = ui.settings.theme == ThemeMode.DARK
     Column(
@@ -74,36 +77,31 @@ fun GameScreen(
             .fillMaxSize()
             .padding(16.dp),
     ) {
-        // Header
+        // Top: title on the left, timer + moves stacked on the right
         Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.fillMaxWidth()) {
             AppTitle()
             Spacer(Modifier.weight(1f))
-            IconButton(onClick = onOpenPremiumScreen) {
-                Icon(
-                    painter = painterResource(R.drawable.ic_crown),
-                    contentDescription = stringResource(R.string.premium_title),
+            Column(horizontalAlignment = Alignment.End) {
+                Text(formatTime(ui.elapsedSeconds), fontWeight = FontWeight.SemiBold, fontSize = 16.sp)
+                Text(
+                    "${ui.state.moves} ${stringResource(R.string.moves_suffix)}",
+                    fontSize = 12.sp,
+                    color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.7f),
                 )
             }
-            IconButton(onClick = onOpenLeaderboard) { Icon(Icons.Default.EmojiEvents, stringResource(R.string.cd_leaderboard)) }
-            IconButton(onClick = onNewGame) { Icon(Icons.Default.Refresh, stringResource(R.string.cd_restart)) }
-            IconButton(onClick = onOpenSettings) { Icon(Icons.Default.Settings, stringResource(R.string.cd_settings)) }
         }
-        Spacer(Modifier.height(8.dp))
-        // Rotating tips card (fixed two-line height — never reflows the layout).
-        TipsCarousel(fastAnimations = ui.settings.fastAnimations)
-        // Fixed gap keeps the tips card off the score row even when the flexible space
-        // collapses on a short screen; the weight below then bottom-anchors the score row,
-        // board and footer for thumb reach on taller screens.
         Spacer(Modifier.height(12.dp))
-        Spacer(Modifier.weight(1f))
-        // Score row
+        // Scores
         Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(12.dp)) {
             ScoreCard(stringResource(R.string.score), ui.state.score, highlighted = true, modifier = Modifier.weight(1f))
             ScoreCard(stringResource(R.string.best_score), ui.bestScore, highlighted = false, modifier = Modifier.weight(1f))
         }
-        Spacer(Modifier.height(10.dp))
-        // Board — ALWAYS full board width (square). It never shrinks: the tips and score
-        // blocks above are sized down instead so the whole column fits above the system bars.
+        Spacer(Modifier.height(12.dp))
+        // Tips
+        TipsCarousel(fastAnimations = ui.settings.fastAnimations)
+
+        // Board centered in the remaining space (always full width, square)
+        Spacer(Modifier.weight(1f))
         Box(Modifier.fillMaxWidth()) {
             GameGrid(
                 board = ui.state.board,
@@ -123,17 +121,32 @@ fun GameScreen(
                 GameStatus.PLAYING -> {}
             }
         }
-        Spacer(Modifier.height(10.dp))
-        // Footer
-        Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
-            Text(formatTime(ui.elapsedSeconds), fontWeight = FontWeight.SemiBold, fontSize = 14.sp)
-            Spacer(Modifier.weight(1f))
-            // Always render the button (disabled when there is nothing to undo) so the
-            // footer keeps a constant height and the board never shifts on undo.
+        Spacer(Modifier.weight(1f))
+
+        // Bottom action bar
+        Row(
+            Modifier
+                .fillMaxWidth()
+                .clip(RoundedCornerShape(24.dp))
+                .background(MaterialTheme.colorScheme.surface)
+                .padding(horizontal = 8.dp),
+            horizontalArrangement = Arrangement.SpaceEvenly,
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            IconButton(onClick = onOpenPremiumScreen) {
+                Icon(
+                    painter = painterResource(R.drawable.ic_crown),
+                    contentDescription = stringResource(R.string.premium_title),
+                    tint = Color.Unspecified, // giữ màu cam của ic_crown
+                )
+            }
+//            IconButton(onClick = onOpenLeaderboard) { Icon(Icons.Default.EmojiEvents, stringResource(R.string.cd_leaderboard)) }
+            IconButton(onClick = onOpenHistory) { Icon(Icons.Default.History, stringResource(R.string.history_title)) }
             IconButton(onClick = onUndo, enabled = ui.canUndo) {
                 Icon(Icons.AutoMirrored.Filled.Undo, stringResource(R.string.undo))
             }
-            Text("${ui.state.moves} ${stringResource(R.string.moves_suffix)}", fontWeight = FontWeight.SemiBold, fontSize = 14.sp)
+            IconButton(onClick = onNewGame) { Icon(Icons.Default.Refresh, stringResource(R.string.cd_restart)) }
+            IconButton(onClick = onOpenSettings) { Icon(Icons.Default.Settings, stringResource(R.string.cd_settings)) }
         }
     }
     if (ui.showNewGameDialog) NewGameDialog(onConfirm = onConfirmNewGame, onDismiss = onDismissDialog)

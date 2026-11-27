@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="app_background">#FDF6E3</color>   <!-- Base3 -->
-    <color name="app_surface">#EEE8D5</color>      <!-- Base2 -->
-    <color name="app_text">#657B83</color>         <!-- Base00 -->
-    <color name="app_text_emphasis">#586E75</color> <!-- Base01 -->
-    <color name="app_stroke">#33657B83</color>
-    <color name="app_price">#CB4B16</color>        <!-- Orange -->
-    <color name="app_badge">#B58900</color>        <!-- Yellow -->
-    <color name="app_on_badge">#FDF6E3</color>     <!-- Base3 -->
+    <color name="app_background">#F4F1FA</color>
+    <color name="app_surface">#E8E2F6</color>
+    <color name="app_text">#5B5675</color>
+    <color name="app_text_emphasis">#2E2A45</color>
+    <color name="app_stroke">#557C5CFF</color>
+    <color name="app_price">#7C5CFF</color>
+    <color name="app_badge">#FF8A4C</color>
+    <color name="app_on_badge">#FFFFFF</color>
 </resources>

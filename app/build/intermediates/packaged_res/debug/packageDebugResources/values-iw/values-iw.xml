@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="game_tips">
-        <item>שמרו את האריח הגדול ביותר בפינה.</item>
-        <item>סדרו את האריחים בסדר יורד לאורך קצה אחד.</item>
-        <item>בחרו כיוון עיקרי והימנעו מהכיוון שהורס את הפינה שלכם.</item>
-        <item>חשבו שניים-שלושה מהלכים קדימה.</item>
-        <item>אחדו אריחים קטנים מוקדם כדי לפנות מקום.</item>
-        <item>אל תחליקו באקראי: שמרו על שורה אחת מסודרת היטב.</item>
-        <item>לוח מלא אינו אבוד: חפשו איחודים אפשריים.</item>
+        <item>שמרו את האריח הגבוה ביותר בפינה אחת ולעולם אל תזיזו אותו.</item>
+        <item>בנו תבנית נחש: תנו לאריחים לרדת בזיגזג על פני הלוח.</item>
+        <item>היצמדו לשניים או שלושה כיווני החלקה, והשתמשו ברביעי רק במצב חירום.</item>
+        <item>תכננו את המהלכים הבאים לפני ההחלקה, לא אחריה.</item>
+        <item>מזגו לעיתים קרובות אריחים בעלי ערך נמוך כדי שלא ימלאו את הלוח.</item>
+        <item>השאירו את השורה התחתונה מלאה כדי שהאריחים לא יחליקו ממקומם.</item>
+        <item>שמרו על קור רוח כשהלוח מתמלא: מיזוג טוב אחד יכול לפתוח הכול.</item>
     </string-array>
-    <string name="app_name">2exp11</string>
     <string name="best_score">השיא</string>
     <string name="cancel">ביטול</string>
     <string name="cd_leaderboard">טבלאות מובילים</string>
@@ -20,6 +19,8 @@
     <string name="fast_anim_desc">שרשור צירופים מהיר יותר.</string>
     <string name="fast_anim_title">האצת אנימציות</string>
     <string name="game_over">המשחק נגמר</string>
+    <string name="history_empty">עדיין לא שוחקו משחקים.</string>
+    <string name="history_title">היסטוריה</string>
     <string name="language_system">ברירת מחדל של המערכת</string>
     <string name="language_title">שפה</string>
     <string name="leaderboard_unavailable">טבלת המובילים אינה זמינה</string>
