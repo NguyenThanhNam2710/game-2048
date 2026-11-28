@@ -26,16 +26,18 @@ import com.gghez.game2048.data.settings.ThemeMode
 import com.gghez.game2048.inapp.PremiumActivity
 import com.gghez.game2048.ui.game.GameScreen
 import com.gghez.game2048.ui.game.GameViewModel
+import com.gghez.game2048.ui.history.HistoryActivity
 import com.gghez.game2048.ui.settings.SettingsBottomSheet
 import com.gghez.game2048.ui.theme.Game2048Theme
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import java.util.Locale
 import kotlin.jvm.java
-import com.gghez.game2048.ui.history.HistoryBottomSheet
+//import com.gghez.game2048.ui.history.HistoryBottomSheet
 
 class MainActivity : ComponentActivity() {
     private var vm: GameViewModel? = null
+
     // Silent sign-in needs an attached Activity, which only exists from onResume.
     // Fire it once per process the first time we attach, so a relaunch of the
     // Activity (e.g. config change) does not retrigger redundant sign-in attempts.
@@ -75,28 +77,36 @@ class MainActivity : ComponentActivity() {
                         Modifier.windowInsetsPadding(WindowInsets.systemBars),
                     ) {
                         GameScreen(
-                        ui = ui,
-                        onSwipe = viewModel::onSwipe,
-                        onNewGame = viewModel::requestNewGame,
-                        onConfirmNewGame = viewModel::confirmNewGame,
-                        onDismissDialog = viewModel::dismissNewGameDialog,
-                        onUndo = viewModel::undo,
-                        onContinue = viewModel::continueAfterWin,
-                        onOpenSettings = { showSettings = true },
-                        onOpenLeaderboard = { viewModel.showLeaderboards(this@MainActivity) },
+                            ui = ui,
+                            onSwipe = viewModel::onSwipe,
+                            onNewGame = viewModel::requestNewGame,
+                            onConfirmNewGame = viewModel::confirmNewGame,
+                            onDismissDialog = viewModel::dismissNewGameDialog,
+                            onUndo = viewModel::undo,
+                            onContinue = viewModel::continueAfterWin,
+                            onOpenSettings = { showSettings = true },
+                            onOpenLeaderboard = { viewModel.showLeaderboards(this@MainActivity) },
+                            onOpenHistory = {
+                                startActivity(
+                                    Intent(this@MainActivity, HistoryActivity::class.java)
+                                        .putExtra(HistoryActivity.EXTRA_DARK, dark)
+                                )
+                            },
                             onOpenPremiumScreen = {
                                 startActivity(
                                     Intent(this@MainActivity, PremiumActivity::class.java)
                                         .putExtra(PremiumActivity.EXTRA_DARK, dark)
                                 )
                             },
-                            onOpenHistory = { showHistory = true }
                         )
                     }
                 }
-                if (showHistory) {
-                    HistoryBottomSheet(records = history, dark = dark, onDismiss = { showHistory = false })
-                }
+//                if (showHistory) {
+//                    HistoryBottomSheet(
+//                        records = history,
+//                        dark = dark,
+//                        onDismiss = { showHistory = false })
+//                }
 
                 if (showSettings) {
                     SettingsBottomSheet(

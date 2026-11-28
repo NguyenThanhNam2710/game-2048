@@ -60,22 +60,25 @@ class GameViewModel(
     private var timerJob: Job? = null
     private var paused = false
 
+    // True once the current game has been written to history (avoids duplicates).
+    private var recorded = false
+
     private val _ui = MutableStateFlow(GameUiState.initial(GameSettings()))
     val history: StateFlow<List<GameRecord>> =
         historyRepo.records.stateIn(viewModelScope, SharingStarted.Lazily, emptyList())
 
-    private suspend fun recordGame(state: GameState, elapsed: Long) {
-        if (state.moves == 0) return
-        historyRepo.add(
-            GameRecord(
-                timestamp = System.currentTimeMillis(),
-                score = state.score,
-                moves = state.moves,
-                elapsedSeconds = elapsed,
-                maxTile = state.board.values().maxOrNull() ?: 0,
-            )
-        )
-    }
+//    private suspend fun recordGame(state: GameState, elapsed: Long) {
+//        if (state.moves == 0) return
+//        historyRepo.add(
+//            GameRecord(
+//                timestamp = System.currentTimeMillis(),
+//                score = state.score,
+//                moves = state.moves,
+//                elapsedSeconds = elapsed,
+//                maxTile = state.board.values().maxOrNull() ?: 0,
+//            )
+//        )
+//    }
     val ui: StateFlow<GameUiState> = _ui.asStateFlow()
 
     init {
@@ -159,7 +162,10 @@ class GameViewModel(
         viewModelScope.launch {
             scoreRepo.updateBestScore(spawned.score)
             if (spawned.status == GameStatus.LOST || spawned.status == GameStatus.WON) submitScores(spawned)
-            if (spawned.status == GameStatus.LOST) recordGame(spawned, _ui.value.elapsedSeconds)  // mới
+            if (spawned.status == GameStatus.LOST && !recorded) {
+                recorded = true
+                saveRecord(spawned, _ui.value.elapsedSeconds)
+            }
             persist()
         }
     }
@@ -180,7 +186,14 @@ class GameViewModel(
     }
 
     fun confirmNewGame() {
-        val old = _ui.value   // mới
+        // Abandoned or won-and-continued games still count in the history.
+        val old = _ui.value.state
+        val oldElapsed = _ui.value.elapsedSeconds
+        if (!recorded) {
+            viewModelScope.launch { saveRecord(old, oldElapsed) }
+        }
+        recorded = false
+
         val fresh = engine.newGame(spawner, ::nextId)
         previous = null
         _ui.value = _ui.value.copy(
@@ -190,8 +203,6 @@ class GameViewModel(
             canUndo = false,
         )
         viewModelScope.launch {
-            // Ván đã thua thì đã được ghi ở onSwipe, nên chỉ ghi ván bỏ dở
-            if (old.state.status != GameStatus.LOST) recordGame(old.state, old.elapsedSeconds)  // mới
             scoreRepo.clearSavedGame()
             persist()
         }
@@ -222,6 +233,31 @@ class GameViewModel(
         // the Play board keeps the smallest, so a later state never overrides it.
         if (s.status == GameStatus.WON) {
             leaderboard.submit(LeaderboardKind.TIME_TO_2048, _ui.value.elapsedSeconds * 1000L)
+        }
+    }
+
+    private suspend fun saveRecord(s: GameState, elapsed: Long) {
+        if (s.moves == 0) return
+        historyRepo.add(
+            GameRecord(
+                endedAtMillis = System.currentTimeMillis(),
+                score = s.score,
+                bestTile = s.board.values().maxOrNull() ?: 0,
+                moves = s.moves,
+                elapsedSeconds = elapsed,
+            )
+        )
+    }
+
+    fun factory(app: Game2048App): ViewModelProvider.Factory = viewModelFactory {
+        initializer {
+            GameViewModel(
+                app.container.settingsRepo,
+                app.container.scoreRepo,
+                app.container.historyRepo,
+                app.container.leaderboard,
+                app.container.feedback,
+            )
         }
     }
 

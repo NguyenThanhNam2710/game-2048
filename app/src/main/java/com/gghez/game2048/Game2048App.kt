@@ -14,9 +14,9 @@ import com.gghez.game2048.feedback.GameFeedback
 class AppContainer(context: Context) {
     val settingsRepo = SettingsRepository(context)
     val scoreRepo = ScoreRepository(context)
+    val historyRepo = HistoryRepository(context)
     val leaderboard: LeaderboardRepository = LeaderboardProvider.create(context)
     val feedback: GameFeedback = AndroidGameFeedback(context)
-    val historyRepo = HistoryRepository(context)
 }
 
 class Game2048App : Application() {

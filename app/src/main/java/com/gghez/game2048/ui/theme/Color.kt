@@ -2,54 +2,66 @@ package com.gghez.game2048.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
-// Aurora palette
-val Ink = Color(0xFF2E2A45)
-val Snow = Color(0xFFFFFFFF)
+// "Mist & Sage" palette: soft misty greens/teals for a calm, relaxing feel.
+// Base tones (names kept so Theme.kt / GameGrid.kt need no changes)
+val Base03 = Color(0xFF14201F) // darkest background (dark mode)
+val Base02 = Color(0xFF1D2D2B) // dark surface
+val Base01 = Color(0xFF4F625A) // light-mode emphasized text
+val Base00 = Color(0xFF5F746B) // light-mode body text
+val Base0 = Color(0xFFA9C2BC)  // dark-mode body text
+val Base1 = Color(0xFFC3D6D0)  // dark-mode emphasized text
+val Base2 = Color(0xFFE3EBE2)  // light surface
+val Base3 = Color(0xFFF4F7F3)  // lightest background (light mode)
 
-val AppBackgroundLight = Color(0xFFF4F1FA)
-val SurfaceLight = Color(0xFFE8E2F6)
-val BodyTextLight = Color(0xFF5B5675)
-val EmphasizedTextLight = Ink
+// Semantic aliases used by the Material color scheme
+val AppBackgroundLight = Base3
+val SurfaceLight = Base2
+val BodyTextLight = Base00
+val EmphasizedTextLight = Base01
 
-val AppBackgroundDark = Color(0xFF14121F)
-val SurfaceDark = Color(0xFF231F36)
-val BodyTextDark = Color(0xFFB9B3D1)
-val EmphasizedTextDark = Color(0xFFE6E1F5)
+val AppBackgroundDark = Base03
+val SurfaceDark = Base02
+val BodyTextDark = Base0
+val EmphasizedTextDark = Base1
 
 // Board & empty cells
-val BoardLight = Color(0xFFDDD5F0)
-val EmptyCellLight = Color(0xFFEEE9F9)
-val BoardDark = Color(0xFF231F36)
-val EmptyCellDark = Color(0xFF181526)
+val BoardLight = Color(0xFFD5E0D4)
+val EmptyCellLight = Color(0xFFE6EEE4)
+val BoardDark = Color(0xFF243634)
+val EmptyCellDark = Color(0xFF1A2927)
 
-val Accent = Color(0xFF7C5CFF)
+// Shared accent for primary controls
+val Accent = Color(0xFF5FA8A0)
+
+// Text/icon colour on top of the accent (buttons, switches)
+val Snow = Color(0xFFFAFCFA)
 
 object TileColors {
-    private val Violet = Color(0xFF9B7BFF)
-    private val Indigo = Color(0xFF7C5CFF)
-    private val Blue = Color(0xFF4F8CFF)
-    private val Teal = Color(0xFF22B8CF)
-    private val Mint = Color(0xFF2FBF8F)
-    private val Lime = Color(0xFF8BC34A)
-    private val Amber = Color(0xFFF5B83D)
-    private val Orange = Color(0xFFFF8A4C)
-    private val Pink = Color(0xFFFF5C7A)
-    private val Hot = Color(0xFFFF3D68)
-
-    private val accent = mapOf(
-        8 to Violet, 16 to Indigo, 32 to Blue, 64 to Teal, 128 to Mint,
-        256 to Lime, 512 to Amber, 1024 to Orange, 2048 to Pink,
+    // Pastel gradient from sage green -> teal -> blue -> violet -> pink -> warm gold.
+    // Pair = (background, text). Dark text on light tiles, white on deep tiles.
+    private val accents = mapOf(
+        8 to (Color(0xFFB7D9C9) to Color(0xFF2D4A3E)),
+        16 to (Color(0xFF8EC8C0) to Color(0xFF1F3F3C)),
+        32 to (Color(0xFF6FB1C4) to Color(0xFF0E2F3A)),
+        64 to (Color(0xFF7F9FD6) to Color(0xFF0E2250)),
+        128 to (Color(0xFF8575CF) to Color.White),
+        256 to (Color(0xFFB77FC9) to Color.White),
+        512 to (Color(0xFFD9708F) to Color.White),
+        1024 to (Color(0xFFF2A07B) to Color(0xFF3A1F12)),
+        2048 to (Color(0xFFF0C75E) to Color(0xFF3A2C08)),
     )
+    // Gold emphasis for anything beyond 2048.
+    private val fallback = Color(0xFFF0C75E) to Color(0xFF3A2C08)
 
     fun bg(value: Int, dark: Boolean): Color = when (value) {
-        2 -> if (dark) Color(0xFF2E2948) else Color(0xFFE4DCF7)
-        4 -> if (dark) Color(0xFF3C3560) else Color(0xFFCFC2F2)
-        else -> accent[value] ?: Hot
+        2 -> if (dark) Color(0xFF2C4240) else Color(0xFFE6EEE4)
+        4 -> if (dark) Color(0xFF35524F) else Color(0xFFD2E3D3)
+        else -> (accents[value] ?: fallback).first
     }
 
     fun fg(value: Int, dark: Boolean): Color = when (value) {
-        2, 4 -> if (dark) Color(0xFFE6E1F5) else Ink
-        512 -> Ink // vàng sáng, chữ trắng khó đọc
-        else -> Snow
+        2 -> if (dark) Color(0xFFB5CCC6) else Color(0xFF5A6B5F)
+        4 -> if (dark) Color(0xFFC9DCD7) else Color(0xFF47594D)
+        else -> (accents[value] ?: fallback).second
     }
 }

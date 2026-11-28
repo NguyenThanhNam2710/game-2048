@@ -3,7 +3,6 @@ package com.gghez.game2048.ui.components
 import androidx.compose.animation.Crossfade
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -35,10 +34,10 @@ import kotlinx.coroutines.delay
 private const val TIP_ROTATION_MS = 5_000L
 
 /**
- * A small card that shows one gameplay tip at a time and rotates to the next one
- * every few seconds, looping. The rotation index is purely local presentation
- * state (a carousel position is not game logic), so it lives here rather than in
- * GameUiState. Tips come from the localized `game_tips` string array.
+ * A small soft card that shows one gameplay tip at a time and rotates to the next
+ * one every few seconds, looping. The rotation index is purely local presentation
+ * state, so it lives here rather than in GameUiState. Tips come from the localized
+ * `game_tips` string array.
  */
 @Composable
 fun TipsCarousel(fastAnimations: Boolean, modifier: Modifier = Modifier) {
@@ -48,7 +47,6 @@ fun TipsCarousel(fastAnimations: Boolean, modifier: Modifier = Modifier) {
     var index by remember { mutableIntStateOf(0) }
     LaunchedEffectRotation(tipCount = tips.size) { index = (index + 1) % tips.size }
 
-    val border = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.18f)
     val fadeMs = if (fastAnimations) 150 else 400
     Crossfade(
         targetState = index,
@@ -56,31 +54,27 @@ fun TipsCarousel(fastAnimations: Boolean, modifier: Modifier = Modifier) {
         label = "tip",
         modifier = modifier
             .fillMaxWidth()
-            .clip(RoundedCornerShape(12.dp))
             .clip(RoundedCornerShape(16.dp))
             .background(MaterialTheme.colorScheme.surface)
             .heightIn(min = 48.dp),
     ) { i ->
         Row(
-            modifier = Modifier.padding(vertical = 6.dp, horizontal = 16.dp),
+            modifier = Modifier.padding(vertical = 6.dp, horizontal = 14.dp),
             verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(12.dp),
+            horizontalArrangement = Arrangement.spacedBy(10.dp),
         ) {
             Icon(
                 Icons.Default.Lightbulb,
                 contentDescription = stringResource(R.string.cd_tip),
-                tint = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.7f),
+                tint = MaterialTheme.colorScheme.primary,
             )
             Text(
                 tips[i],
-                fontSize = 14.sp,
+                fontSize = 13.sp,
                 fontWeight = FontWeight.Medium,
                 color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.85f),
                 // Reserve a constant two-line height so the card never resizes as tips
-                // rotate: a one-line tip and a two-line tip would otherwise give the card
-                // different heights and shift the score row + board below it. Two lines fit
-                // the longest tip in every locale at normal widths; anything longer at very
-                // narrow widths ellipsizes rather than growing the card.
+                // rotate and never shifts the layout around it.
                 minLines = 2,
                 maxLines = 2,
                 overflow = TextOverflow.Ellipsis,

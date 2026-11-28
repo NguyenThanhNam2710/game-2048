@@ -1,5 +1,6 @@
 package com.gghez.game2048.ui.components
 
+import android.annotation.SuppressLint
 import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.FastOutSlowInEasing
 import androidx.compose.animation.core.animateDpAsState
@@ -43,11 +44,15 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlin.math.abs
 
-// --- Merge cue tuning -------------------------------------------------------
-// A merge gets a deliberately beefier, two-channel cue than a tile appearing, so
-// "these two just fused" reads instantly and never gets mistaken for a spawn.
-// The appear pop (0.5 -> 1) is intentionally left gentle and unchanged.
+// --- Visual tuning ----------------------------------------------------------
+/** Corner radius of the board container. */
+private val BOARD_RADIUS = 20.dp
+/** Corner radius of tiles and empty cells. */
+private val CELL_RADIUS = 12.dp
+/** Gap between cells (applied on each side of a cell). */
+private val CELL_GAP = 5.dp
 
+// --- Merge cue tuning -------------------------------------------------------
 /** Overshoot peak of the merge scale pop — clearly past the resting 1x. */
 private const val MERGE_SCALE_PEAK = 1.28f
 /** Slight settle-back dip after the peak before resting at 1x. */
@@ -69,6 +74,7 @@ private const val MERGE_SYNC_FRACTION = 0.8f
  * cell the same composable survives and its x/y offset animates — that is what
  * produces the sliding animation. New/merged tiles also pop via a scale spring.
  */
+@SuppressLint("UnusedBoxWithConstraintsScope")
 @Composable
 fun GameGrid(
     board: Board,
@@ -83,7 +89,7 @@ fun GameGrid(
         modifier = modifier
             .fillMaxWidth()
             .aspectRatio(1f)
-            .clip(RoundedCornerShape(16.dp))
+            .clip(RoundedCornerShape(BOARD_RADIUS))
             .background(if (dark) BoardDark else BoardLight)
             .padding(6.dp)
             .pointerInput(Unit) {
@@ -120,8 +126,8 @@ fun GameGrid(
                                 Modifier
                                     .weight(1f)
                                     .fillMaxSize()
-                                    .padding(4.dp)
-                                    .clip(RoundedCornerShape(12.dp))
+                                    .padding(CELL_GAP)
+                                    .clip(RoundedCornerShape(CELL_RADIUS))
                                     .background(if (dark) EmptyCellDark else EmptyCellLight),
                             )
                         }
@@ -173,7 +179,7 @@ private fun MovableTile(value: Int, row: Int, col: Int, cell: Dp, dark: Boolean,
     val glow = remember { Animatable(0f) }
     var previousValue by remember { mutableStateOf(value) }
 
-    // Appear pop — unchanged, intentionally gentle (0.5 -> 1).
+    // Appear pop — intentionally gentle (0.5 -> 1).
     LaunchedEffect(Unit) {
         scale.animateTo(1f, tween(durationMillis = if (fast) 90 else 150))
     }
@@ -210,7 +216,7 @@ private fun MovableTile(value: Int, row: Int, col: Int, cell: Dp, dark: Boolean,
         Modifier
             .size(cell)
             .offset(x = x, y = y)
-            .padding(4.dp)
+            .padding(CELL_GAP)
             .scale(scale.value),
     ) {
         TileView(value = value, dark = dark, modifier = Modifier.fillMaxSize())
@@ -219,7 +225,7 @@ private fun MovableTile(value: Int, row: Int, col: Int, cell: Dp, dark: Boolean,
             Box(
                 Modifier
                     .matchParentSize()
-                    .clip(RoundedCornerShape(12.dp))
+                    .clip(RoundedCornerShape(CELL_RADIUS))
                     .background(Color.White.copy(alpha = glow.value)),
             )
         }

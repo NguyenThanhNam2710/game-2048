@@ -1,5 +1,6 @@
 package com.gghez.game2048.ui.components
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -14,6 +15,7 @@ import androidx.compose.ui.unit.sp
 import com.gghez.game2048.ui.theme.TileColors
 
 /** Pure visual of a single tile: coloured rounded background + the number. */
+@SuppressLint("UnusedBoxWithConstraintsScope")
 @Composable
 fun TileView(value: Int, dark: Boolean, modifier: Modifier = Modifier) {
     BoxWithConstraints(
@@ -22,7 +24,7 @@ fun TileView(value: Int, dark: Boolean, modifier: Modifier = Modifier) {
             .background(TileColors.bg(value, dark)),
         contentAlignment = Alignment.Center,
     ) {
-        // Size the digits relative to the tile so they fill it like the mockup,
+        // Size the digits relative to the tile so they fill it,
         // shrinking only as the number grows longer. Uses the system font.
         val digits = value.toString().length
         val factor = when {

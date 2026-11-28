@@ -1,18 +1,26 @@
 package com.gghez.game2048.data.history
 
+/** One finished (or abandoned) game, stored locally on the device only. */
 data class GameRecord(
-    val timestamp: Long,
+    val endedAtMillis: Long,
     val score: Int,
+    val bestTile: Int,
     val moves: Int,
     val elapsedSeconds: Long,
-    val maxTile: Int,
 ) {
-    fun serialize(): String = "$timestamp;$score;$moves;$elapsedSeconds;$maxTile"
+    fun serialize(): String =
+        listOf(endedAtMillis, score, bestTile, moves, elapsedSeconds).joinToString(",")
 
     companion object {
         fun parse(s: String): GameRecord? = runCatching {
-            val p = s.split(";")
-            GameRecord(p[0].toLong(), p[1].toInt(), p[2].toInt(), p[3].toLong(), p[4].toInt())
+            val p = s.split(",")
+            GameRecord(
+                endedAtMillis = p[0].toLong(),
+                score = p[1].toInt(),
+                bestTile = p[2].toInt(),
+                moves = p[3].toInt(),
+                elapsedSeconds = p[4].toLong(),
+            )
         }.getOrNull()
     }
 }

@@ -11,13 +11,15 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.Undo
 import androidx.compose.material.icons.filled.EmojiEvents
-import androidx.compose.material.icons.filled.History
 import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material.icons.filled.Settings
+import androidx.compose.material3.FilledTonalIconButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -31,14 +33,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.AnnotatedString
-import androidx.compose.ui.text.SpanStyle
-import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.BaselineShift
-import androidx.compose.ui.text.withStyle
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.em
 import androidx.compose.ui.unit.sp
 import com.gghez.game2048.R
 import com.gghez.game2048.data.settings.ThemeMode
@@ -46,16 +43,23 @@ import com.gghez.game2048.domain.Direction
 import com.gghez.game2048.domain.GameStatus
 import com.gghez.game2048.ui.components.GameGrid
 import com.gghez.game2048.ui.components.NewGameDialog
-import com.gghez.game2048.ui.components.PremiumButton
 import com.gghez.game2048.ui.components.ScoreCard
 import com.gghez.game2048.ui.components.TipsCarousel
+import androidx.compose.material.icons.filled.History
 
 /**
- * Portrait layout, bottom-anchored for thumb reach: the header and the rotating tips card
- * sit at the top; a flexible spacer then pushes the score row, the full-width square board
- * and the footer (timer, undo, move count) to the bottom. The board is ALWAYS full board
- * width and never shrinks — the tips and score blocks are sized down instead so everything
- * fits above the system bars on short screens.
+ * Portrait layout, bottom-anchored for thumb reach:
+ *
+ *   header (title + leaderboard + settings)
+ *   ---- flexible space ----
+ *   score row
+ *   time · moves chips
+ *   full-width square board
+ *   tips card
+ *   action bar (undo · new game · premium)
+ *
+ * The board is ALWAYS full board width and never shrinks. The flexible space
+ * collapses first on short screens.
  */
 @Composable
 fun GameScreen(
@@ -68,8 +72,8 @@ fun GameScreen(
     onContinue: () -> Unit,
     onOpenSettings: () -> Unit,
     onOpenLeaderboard: () -> Unit,
-    onOpenPremiumScreen: () -> Unit,
     onOpenHistory: () -> Unit,
+    onOpenPremiumScreen: () -> Unit,
 ) {
     val dark = ui.settings.theme == ThemeMode.DARK
     Column(
@@ -77,31 +81,43 @@ fun GameScreen(
             .fillMaxSize()
             .padding(16.dp),
     ) {
-        // Top: title on the left, timer + moves stacked on the right
+        // Header: compact, only the two secondary actions live here.
         Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.fillMaxWidth()) {
-            AppTitle()
-            Spacer(Modifier.weight(1f))
-            Column(horizontalAlignment = Alignment.End) {
-                Text(formatTime(ui.elapsedSeconds), fontWeight = FontWeight.SemiBold, fontSize = 16.sp)
-                Text(
-                    "${ui.state.moves} ${stringResource(R.string.moves_suffix)}",
-                    fontSize = 12.sp,
-                    color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.7f),
-                )
+            AppTitle(modifier = Modifier.weight(1f))
+            IconButton(onClick = onOpenHistory) {
+                Icon(Icons.Default.History, stringResource(R.string.history_title))
+            }
+            IconButton(onClick = onOpenLeaderboard) {
+                Icon(Icons.Default.EmojiEvents, stringResource(R.string.cd_leaderboard))
+            }
+            IconButton(onClick = onOpenSettings) {
+                Icon(Icons.Default.Settings, stringResource(R.string.cd_settings))
             }
         }
-        Spacer(Modifier.height(12.dp))
-        // Scores
+
+        // Flexible space pushes everything below toward the thumb.
+        Spacer(Modifier.weight(1f))
+
+        // Score row
         Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(12.dp)) {
             ScoreCard(stringResource(R.string.score), ui.state.score, highlighted = true, modifier = Modifier.weight(1f))
             ScoreCard(stringResource(R.string.best_score), ui.bestScore, highlighted = false, modifier = Modifier.weight(1f))
         }
-        Spacer(Modifier.height(12.dp))
-        // Tips
-        TipsCarousel(fastAnimations = ui.settings.fastAnimations)
+        Spacer(Modifier.height(8.dp))
 
-        // Board centered in the remaining space (always full width, square)
-        Spacer(Modifier.weight(1f))
+        // Time and move count as two small chips, centered above the board.
+        Row(
+            Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.Center,
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            StatChip(formatTime(ui.elapsedSeconds))
+            Spacer(Modifier.width(8.dp))
+            StatChip("${ui.state.moves} ${stringResource(R.string.moves_suffix)}")
+        }
+        Spacer(Modifier.height(10.dp))
+
+        // Board — ALWAYS full width (square), never shrinks.
         Box(Modifier.fillMaxWidth()) {
             GameGrid(
                 board = ui.state.board,
@@ -121,32 +137,42 @@ fun GameScreen(
                 GameStatus.PLAYING -> {}
             }
         }
-        Spacer(Modifier.weight(1f))
+        Spacer(Modifier.height(10.dp))
 
-        // Bottom action bar
+        // Rotating tips card (fixed two-line height — never reflows the layout).
+        TipsCarousel(fastAnimations = ui.settings.fastAnimations)
+        Spacer(Modifier.height(10.dp))
+
+        // Action bar at the bottom for easy thumb reach.
+        // Undo is always rendered (disabled when nothing to undo) so the bar keeps a constant height.
         Row(
-            Modifier
-                .fillMaxWidth()
-                .clip(RoundedCornerShape(24.dp))
-                .background(MaterialTheme.colorScheme.surface)
-                .padding(horizontal = 8.dp),
+            Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceEvenly,
             verticalAlignment = Alignment.CenterVertically,
         ) {
-            IconButton(onClick = onOpenPremiumScreen) {
+            FilledTonalIconButton(
+                onClick = onUndo,
+                enabled = ui.canUndo,
+                modifier = Modifier.size(56.dp),
+            ) {
+                Icon(Icons.AutoMirrored.Filled.Undo, stringResource(R.string.undo))
+            }
+            FilledTonalIconButton(
+                onClick = onNewGame,
+                modifier = Modifier.size(56.dp),
+            ) {
+                Icon(Icons.Default.Refresh, stringResource(R.string.cd_restart))
+            }
+            FilledTonalIconButton(
+                onClick = onOpenPremiumScreen,
+                modifier = Modifier.size(56.dp),
+            ) {
                 Icon(
                     painter = painterResource(R.drawable.ic_crown),
                     contentDescription = stringResource(R.string.premium_title),
-                    tint = Color.Unspecified, // giữ màu cam của ic_crown
+                    tint = Color.Unspecified, // keep the gold of the crown vector
                 )
             }
-//            IconButton(onClick = onOpenLeaderboard) { Icon(Icons.Default.EmojiEvents, stringResource(R.string.cd_leaderboard)) }
-            IconButton(onClick = onOpenHistory) { Icon(Icons.Default.History, stringResource(R.string.history_title)) }
-            IconButton(onClick = onUndo, enabled = ui.canUndo) {
-                Icon(Icons.AutoMirrored.Filled.Undo, stringResource(R.string.undo))
-            }
-            IconButton(onClick = onNewGame) { Icon(Icons.Default.Refresh, stringResource(R.string.cd_restart)) }
-            IconButton(onClick = onOpenSettings) { Icon(Icons.Default.Settings, stringResource(R.string.cd_settings)) }
         }
     }
     if (ui.showNewGameDialog) NewGameDialog(onConfirm = onConfirmNewGame, onDismiss = onDismissDialog)
@@ -157,8 +183,8 @@ private fun BoxScope.Overlay(title: String, actions: @Composable () -> Unit) {
     Box(
         Modifier
             .matchParentSize()
-            .clip(RoundedCornerShape(12.dp))
-            .background(MaterialTheme.colorScheme.background.copy(alpha = 0.85f))
+            .clip(RoundedCornerShape(20.dp))
+            .background(MaterialTheme.colorScheme.background.copy(alpha = 0.88f))
             // Swallow every pointer event so taps and drags never reach the board
             // behind the overlay. The action buttons sit above this Box and keep
             // their own clicks; this only blocks the translucent backdrop area.
@@ -181,31 +207,31 @@ private fun BoxScope.Overlay(title: String, actions: @Composable () -> Unit) {
     }
 }
 
-/**
- * The app wordmark rendered as the mathematical notation 2¹¹ (= 2048): the digits after the
- * "exp" separator in the app name are shown as a smaller, raised superscript. Falls back to
- * the raw name if it has no "exp" separator.
- */
+/** The app wordmark, kept to a single line so it never wraps next to the header icons. */
 @Composable
 private fun AppTitle(modifier: Modifier = Modifier) {
-    val name = stringResource(R.string.app_name)
-    val separator = "exp"
-    val rendered = if (name.contains(separator)) {
-        val (base, exponent) = name.split(separator, limit = 2)
-        buildAnnotatedString {
-            append(base)
-            withStyle(SpanStyle(baselineShift = BaselineShift.Superscript, fontSize = 0.6.em)) {
-                append(exponent)
-            }
-        }
-    } else {
-        AnnotatedString(name)
-    }
     Text(
-        rendered,
+        text = stringResource(R.string.app_name),
         modifier = modifier,
         style = MaterialTheme.typography.titleLarge,
         fontWeight = FontWeight.Bold,
+        maxLines = 1,
+        overflow = TextOverflow.Ellipsis,
+    )
+}
+
+/** Small rounded pill used for the timer and the move counter. */
+@Composable
+private fun StatChip(text: String) {
+    Text(
+        text = text,
+        fontWeight = FontWeight.SemiBold,
+        fontSize = 13.sp,
+        color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.85f),
+        modifier = Modifier
+            .clip(RoundedCornerShape(12.dp))
+            .background(MaterialTheme.colorScheme.surface)
+            .padding(horizontal = 12.dp, vertical = 4.dp),
     )
 }
 
