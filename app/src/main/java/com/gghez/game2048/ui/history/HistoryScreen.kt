@@ -56,11 +56,15 @@ fun HistoryScreen(records: List<GameRecord>, dark: Boolean, onBack: () -> Unit) 
         Spacer(Modifier.height(12.dp))
         if (records.isEmpty()) {
             Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                Text(
-                    stringResource(R.string.history_empty),
-                    textAlign = TextAlign.Center,
-                    color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.7f),
-                )
+                Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                    Text("🧸", fontSize = 56.sp)
+                    Spacer(Modifier.height(8.dp))
+                    Text(
+                        stringResource(R.string.history_empty),
+                        textAlign = TextAlign.Center,
+                        color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.7f),
+                    )
+                }
             }
         } else {
             LazyColumn(verticalArrangement = Arrangement.spacedBy(10.dp)) {

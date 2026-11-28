@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name" translatable="false">2048 Play</string>
+    <string name="app_name" translatable="false">Kawaii 2048</string>
 
     <!-- Score row -->
     <!-- Intentionally kept as short EN all-caps labels in every locale (stylistic, do not translate). -->

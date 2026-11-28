@@ -3,18 +3,17 @@ package com.gghez.game2048.ui.components
 import androidx.compose.animation.Crossfade
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Lightbulb
-import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
@@ -24,6 +23,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.stringArrayResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
@@ -32,6 +33,9 @@ import com.gghez.game2048.R
 import kotlinx.coroutines.delay
 
 private const val TIP_ROTATION_MS = 5_000L
+
+// Cute mascots that rotate together with the tips.
+private val TIP_EMOJIS = listOf("🐰", "🌸", "🧸", "🍓", "🦄", "🎀", "🌈")
 
 /**
  * A small soft card that shows one gameplay tip at a time and rotates to the next
@@ -47,6 +51,8 @@ fun TipsCarousel(fastAnimations: Boolean, modifier: Modifier = Modifier) {
     var index by remember { mutableIntStateOf(0) }
     LaunchedEffectRotation(tipCount = tips.size) { index = (index + 1) % tips.size }
 
+    val tipLabel = stringResource(R.string.cd_tip)
+    val shape = RoundedCornerShape(20.dp)
     val fadeMs = if (fastAnimations) 150 else 400
     Crossfade(
         targetState = index,
@@ -54,25 +60,26 @@ fun TipsCarousel(fastAnimations: Boolean, modifier: Modifier = Modifier) {
         label = "tip",
         modifier = modifier
             .fillMaxWidth()
-            .clip(RoundedCornerShape(16.dp))
+            .clip(shape)
             .background(MaterialTheme.colorScheme.surface)
-            .heightIn(min = 48.dp),
+            .border(2.dp, MaterialTheme.colorScheme.primary.copy(alpha = 0.2f), shape)
+            .heightIn(min = 52.dp),
     ) { i ->
         Row(
             modifier = Modifier.padding(vertical = 6.dp, horizontal = 14.dp),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.spacedBy(10.dp),
         ) {
-            Icon(
-                Icons.Default.Lightbulb,
-                contentDescription = stringResource(R.string.cd_tip),
-                tint = MaterialTheme.colorScheme.primary,
+            Text(
+                TIP_EMOJIS[i % TIP_EMOJIS.size],
+                fontSize = 24.sp,
+                modifier = Modifier.semantics { contentDescription = tipLabel },
             )
             Text(
                 tips[i],
                 fontSize = 13.sp,
                 fontWeight = FontWeight.Medium,
-                color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.85f),
+                color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.9f),
                 // Reserve a constant two-line height so the card never resizes as tips
                 // rotate and never shifts the layout around it.
                 minLines = 2,
@@ -89,7 +96,7 @@ fun TipsCarousel(fastAnimations: Boolean, modifier: Modifier = Modifier) {
  */
 @Composable
 private fun LaunchedEffectRotation(tipCount: Int, advance: () -> Unit) {
-    androidx.compose.runtime.LaunchedEffect(tipCount) {
+    LaunchedEffect(tipCount) {
         if (tipCount <= 1) return@LaunchedEffect
         while (true) {
             delay(TIP_ROTATION_MS)

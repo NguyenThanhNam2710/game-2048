@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="app_background">#F4F7F3</color>
-    <color name="app_surface">#E3EBE2</color>
-    <color name="app_text">#5F746B</color>
-    <color name="app_text_emphasis">#4F625A</color>
-    <color name="app_stroke">#335F746B</color>
-    <color name="app_price">#5FA8A0</color>
-    <color name="app_badge">#F0C75E</color>
-    <color name="app_on_badge">#3A2C08</color>
+    <color name="app_background">#FFF0F5</color>
+    <color name="app_surface">#FFE0EC</color>
+    <color name="app_text">#9A4A6C</color>
+    <color name="app_text_emphasis">#7A3553</color>
+    <color name="app_stroke">#55E85D9A</color>
+    <color name="app_price">#E85D9A</color>
+    <color name="app_badge">#FFD76A</color>
+    <color name="app_on_badge">#5A3D00</color>
 </resources>

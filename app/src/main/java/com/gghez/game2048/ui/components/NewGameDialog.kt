@@ -16,6 +16,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
 import com.gghez.game2048.R
 
@@ -23,7 +24,7 @@ import com.gghez.game2048.R
 fun NewGameDialog(onConfirm: () -> Unit, onDismiss: () -> Unit) {
     Dialog(onDismissRequest = onDismiss) {
         Surface(
-            shape = RoundedCornerShape(20.dp),
+            shape = RoundedCornerShape(28.dp),
             color = MaterialTheme.colorScheme.background,
         ) {
             Column(
@@ -31,10 +32,14 @@ fun NewGameDialog(onConfirm: () -> Unit, onDismiss: () -> Unit) {
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.spacedBy(16.dp),
             ) {
-                Text(stringResource(R.string.new_game_title), style = MaterialTheme.typography.titleLarge)
+                Text("🥺", fontSize = 44.sp)
+                Text(
+                    stringResource(R.string.new_game_title),
+                    style = MaterialTheme.typography.titleLarge,
+                )
                 Text(stringResource(R.string.new_game_body), textAlign = TextAlign.Center)
                 Button(onClick = onConfirm, modifier = Modifier.fillMaxWidth()) {
-                    Text(stringResource(R.string.start))
+                    Text("💖 " + stringResource(R.string.start))
                 }
                 OutlinedButton(onClick = onDismiss, modifier = Modifier.fillMaxWidth()) {
                     Text(stringResource(R.string.cancel))

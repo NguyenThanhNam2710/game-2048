@@ -46,9 +46,9 @@ import kotlin.math.abs
 
 // --- Visual tuning ----------------------------------------------------------
 /** Corner radius of the board container. */
-private val BOARD_RADIUS = 20.dp
+private val BOARD_RADIUS = 24.dp
 /** Corner radius of tiles and empty cells. */
-private val CELL_RADIUS = 12.dp
+private val CELL_RADIUS = 14.dp
 /** Gap between cells (applied on each side of a cell). */
 private val CELL_GAP = 5.dp
 

@@ -46,11 +46,11 @@ class PremiumActivity : AppCompatActivity() {
         }
 
         val plans = listOf(
-            PremiumPlan("premium_basic", getString(R.string.plan_basic), "9.000đ"),
-            PremiumPlan("premium_standard", getString(R.string.plan_standard), "29.000đ", true),
-            PremiumPlan("premium_plus", getString(R.string.plan_plus), "49.000đ"),
-            PremiumPlan("premium_pro", getString(R.string.plan_pro), "99.000đ"),
-            PremiumPlan("premium_lifetime", getString(R.string.plan_lifetime), "199.000đ")
+            PremiumPlan("premium_basic", "🌱 " + getString(R.string.plan_basic), "9.000đ"),
+            PremiumPlan("premium_standard", "🌸 " + getString(R.string.plan_standard), "29.000đ", true),
+            PremiumPlan("premium_plus", "🎀 " + getString(R.string.plan_plus), "49.000đ"),
+            PremiumPlan("premium_pro", "💎 " + getString(R.string.plan_pro), "99.000đ"),
+            PremiumPlan("premium_lifetime", "👑 " + getString(R.string.plan_lifetime), "199.000đ")
         )
 
         val adapter = PremiumPlanAdapter(plans) { plan ->

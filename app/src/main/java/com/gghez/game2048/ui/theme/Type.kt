@@ -6,6 +6,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 
 val AppTypography = Typography(
-    titleLarge = TextStyle(fontWeight = FontWeight.Bold, fontSize = 26.sp),
+    titleLarge = TextStyle(fontWeight = FontWeight.ExtraBold, fontSize = 26.sp),
     labelMedium = TextStyle(fontWeight = FontWeight.SemiBold, fontSize = 13.sp),
 )
